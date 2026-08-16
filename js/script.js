@@ -129,9 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // 6. VIDEO PLAYBACK FALLBACK HANDLING
   const heroVideo = document.querySelector('.hero-video');
   if (heroVideo) {
+    heroVideo.addEventListener('error', () => {
+      heroVideo.style.display = 'none';
+    });
+    
     heroVideo.play().catch(() => {
-      // Autoplay was prevented or video source not yet available; poster image displays seamlessly
-      console.log('Video autoplay prevented or video pending; poster active.');
+      // Autoplay was prevented or video source not yet available; poster and background image display seamlessly
+      console.log('Video autoplay prevented or video pending; background image active.');
     });
   }
 });

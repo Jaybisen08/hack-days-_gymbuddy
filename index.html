@@ -67,6 +67,13 @@
 
     <!-- 2. HERO SECTION -->
     <section id="home" class="hero">
+      <img
+        class="hero-bg-img"
+        src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80"
+        alt="Gym workout atmospheric background"
+        referrerpolicy="no-referrer"
+        id="hero-bg-fallback"
+      />
       <video
         class="hero-video"
         autoplay
@@ -74,7 +81,7 @@
         loop
         playsinline
         preload="metadata"
-        poster="assets/fitness-hero-poster.jpg"
+        poster="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80"
         id="hero-video-element">
         <source
           src="assets/fitness-hero.mp4"
@@ -431,58 +438,171 @@
       </div>
     </section>
 
-    <!-- 7. SECTION — AI NUTRITION -->
+    <!-- 7. SECTION — KNOW YOUR PLATE (AI NUTRITION) -->
     <section class="section section-white" id="ai-nutrition">
       <div class="container">
-        <div class="nutrition-grid">
-          <div class="reveal-item" id="nutrition-header-info">
-            <span class="section-tag">AI NUTRITION</span>
-            <h2 class="section-title">
-              Know what's<br />
-              on your plate.
-            </h2>
-            <p class="section-desc">
-              Snap a photo of your meal and get an AI-powered nutritional estimate.
-            </p>
+        <!-- Section Header -->
+        <div class="section-header reveal-item" id="nutrition-header-info">
+          <span class="section-tag">KNOW YOUR PLATE</span>
+          <h2 class="section-title">
+            Know what's<br />
+            on your plate.
+          </h2>
+          <p class="section-desc">
+            Snap a photo of your meal to get instant AI-powered macro breakdown, calorie estimation, and dietary suggestions tailored to your training goals.
+          </p>
+        </div>
+
+        <!-- 3 High-Quality Balanced Meal Photos in Visually Balanced Layout with Rounded Corners -->
+        <div class="balanced-meals-grid reveal-item delay-1" id="balanced-meals-showcase">
+          <!-- Meal 1 -->
+          <div class="balanced-meal-card" id="meal-card-1">
+            <div class="meal-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80"
+                alt="High-Protein Salmon & Quinoa Power Bowl with Avocado and Edamame"
+                class="meal-photo-img"
+                referrerpolicy="no-referrer"
+                loading="lazy"
+              />
+              <span class="meal-category-badge">High Protein</span>
+            </div>
+            <div class="meal-card-details">
+              <div class="meal-title-row">
+                <h3 class="meal-card-title">Salmon & Quinoa Bowl</h3>
+                <span class="meal-calorie-pill">540 kcal</span>
+              </div>
+              <p class="meal-card-subtitle">Fresh Atlantic salmon, tricolor quinoa, sliced avocado, edamame, and mixed greens.</p>
+              <div class="meal-macro-chips">
+                <span class="macro-chip"><strong class="chip-val">42g</strong> Prot</span>
+                <span class="macro-chip"><strong class="chip-val">48g</strong> Carb</span>
+                <span class="macro-chip"><strong class="chip-val">18g</strong> Fat</span>
+              </div>
+            </div>
           </div>
 
-          <div class="meal-card reveal-item delay-1" id="meal-breakdown-card">
-            <div class="meal-header">
-              <div>
-                <span class="meal-label">YOUR MEAL</span>
-                <h3 class="meal-food-items">Rice • Dal • Vegetables • Roti</h3>
+          <!-- Meal 2 -->
+          <div class="balanced-meal-card" id="meal-card-2">
+            <div class="meal-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80"
+                alt="Grilled Chicken Breast with Sweet Potatoes and Steamed Broccoli"
+                class="meal-photo-img"
+                referrerpolicy="no-referrer"
+                loading="lazy"
+              />
+              <span class="meal-category-badge">Clean Lean</span>
+            </div>
+            <div class="meal-card-details">
+              <div class="meal-title-row">
+                <h3 class="meal-card-title">Herb Chicken & Sweet Potato</h3>
+                <span class="meal-calorie-pill">480 kcal</span>
               </div>
-              <div class="meal-calories">
-                <div class="calorie-number">620</div>
-                <div class="calorie-label">kcal</div>
+              <p class="meal-card-subtitle">Rosemary grilled chicken breast, roasted sweet potato wedges, broccoli & extra virgin olive oil.</p>
+              <div class="meal-macro-chips">
+                <span class="macro-chip"><strong class="chip-val">46g</strong> Prot</span>
+                <span class="macro-chip"><strong class="chip-val">34g</strong> Carb</span>
+                <span class="macro-chip"><strong class="chip-val">12g</strong> Fat</span>
               </div>
             </div>
+          </div>
 
-            <div class="macro-grid">
-              <div class="macro-card">
-                <div class="macro-name">Protein</div>
-                <div class="macro-value">22g</div>
+          <!-- Meal 3 -->
+          <div class="balanced-meal-card" id="meal-card-3">
+            <div class="meal-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80"
+                alt="Nutrient-Rich Avocado and Poached Egg Superfood Salad"
+                class="meal-photo-img"
+                referrerpolicy="no-referrer"
+                loading="lazy"
+              />
+              <span class="meal-category-badge">Nutrient Dense</span>
+            </div>
+            <div class="meal-card-details">
+              <div class="meal-title-row">
+                <h3 class="meal-card-title">Avocado & Egg Super Bowl</h3>
+                <span class="meal-calorie-pill">420 kcal</span>
               </div>
-              <div class="macro-card">
-                <div class="macro-name">Carbs</div>
-                <div class="macro-value">94g</div>
-              </div>
-              <div class="macro-card">
-                <div class="macro-name">Fat</div>
-                <div class="macro-value">16g</div>
+              <p class="meal-card-subtitle">Soft-poached eggs, ripe hass avocado, baby spinach, cherry tomatoes, and toasted pumpkin seeds.</p>
+              <div class="meal-macro-chips">
+                <span class="macro-chip"><strong class="chip-val">24g</strong> Prot</span>
+                <span class="macro-chip"><strong class="chip-val">38g</strong> Carb</span>
+                <span class="macro-chip"><strong class="chip-val">19g</strong> Fat</span>
               </div>
             </div>
+          </div>
+        </div>
 
-            <div class="nutrition-tip-card">
-              <div class="tip-label">AI TIP</div>
-              <p class="tip-text">
-                Add a protein-rich side to create a more balanced meal.
+        <!-- AI Nutrition Vision Scanner & Live Analysis Box -->
+        <div class="nutrition-analysis-banner reveal-item delay-2" id="nutrition-analysis-banner">
+          <div class="analysis-scanner-badge">
+            <span class="live-dot"></span>
+            AI MEAL VISION SCANNER READY
+          </div>
+          <div class="nutrition-grid" style="margin-top: 24px;">
+            <div class="meal-card" id="meal-breakdown-card" style="margin: 0;">
+              <div class="meal-header">
+                <div>
+                  <span class="meal-label">SAMPLE DETECTED MEAL</span>
+                  <h3 class="meal-food-items">Rice • Dal • Vegetables • Roti</h3>
+                </div>
+                <div class="meal-calories">
+                  <div class="calorie-number">620</div>
+                  <div class="calorie-label">kcal</div>
+                </div>
+              </div>
+
+              <div class="macro-grid">
+                <div class="macro-card">
+                  <div class="macro-name">Protein</div>
+                  <div class="macro-value">22g</div>
+                </div>
+                <div class="macro-card">
+                  <div class="macro-name">Carbs</div>
+                  <div class="macro-value">94g</div>
+                </div>
+                <div class="macro-card">
+                  <div class="macro-name">Fat</div>
+                  <div class="macro-value">16g</div>
+                </div>
+              </div>
+
+              <div class="nutrition-tip-card">
+                <div class="tip-label">AI COACH TIP</div>
+                <p class="tip-text">
+                  Pair with a lean protein source (e.g. paneer, eggs, or Greek yogurt) to balance the carbohydrate distribution.
+                </p>
+              </div>
+
+              <p class="disclaimer-text">
+                * Nutrition values are estimated AI approximations calibrated for athlete wellness.
               </p>
             </div>
 
-            <p class="disclaimer-text">
-              * Nutrition values are estimated AI approximations.
-            </p>
+            <div class="nutrition-feature-highlights">
+              <div class="nutri-feature-item">
+                <div class="nutri-feature-icon">📸</div>
+                <div>
+                  <h4 class="nutri-feature-title">Instant Vision Recognition</h4>
+                  <p class="nutri-feature-desc">Point your camera or upload any meal photo to automatically detect ingredients and portion weights.</p>
+                </div>
+              </div>
+              <div class="nutri-feature-item">
+                <div class="nutri-feature-icon">⚡</div>
+                <div>
+                  <h4 class="nutri-feature-title">Real-Time Macro Breakdown</h4>
+                  <p class="nutri-feature-desc">Get clear targets for protein, carbohydrates, fats, and dietary fiber synced to your daily fitness goal.</p>
+                </div>
+              </div>
+              <div class="nutri-feature-item">
+                <div class="nutri-feature-icon">🧠</div>
+                <div>
+                  <h4 class="nutri-feature-title">Context-Aware Coach Insights</h4>
+                  <p class="nutri-feature-desc">Smart recommendations suggest practical additions or adjustments based on your workout intensity.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

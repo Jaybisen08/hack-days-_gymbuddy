@@ -451,6 +451,21 @@ button {
   justify-content: center;
   padding: calc(var(--nav-height) + 20px) 24px 80px;
   background-color: #111111;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  filter: brightness(0.85);
 }
 
 .hero-video {
@@ -470,7 +485,7 @@ button {
   background: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.35),
-    rgba(0, 0, 0, 0.45)
+    rgba(0, 0, 0, 0.55)
   );
   pointer-events: none;
 }
@@ -1060,26 +1075,217 @@ button {
 }
 
 /* --------------------------------------------------------------------------
-   AI NUTRITION SECTION
+   AI NUTRITION SECTION (KNOW YOUR PLATE)
    -------------------------------------------------------------------------- */
-.nutrition-grid {
+.balanced-meals-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-bottom: 48px;
 }
 
-.meal-card {
+.balanced-meal-card {
   background-color: var(--bg-white);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-xl);
-  padding: 36px;
-  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+  display: flex;
+  flex-direction: column;
+}
+
+.balanced-meal-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08);
+  border-color: #D6D6D6;
+}
+
+.meal-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background-color: #EFEFEF;
+}
+
+.meal-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.balanced-meal-card:hover .meal-photo-img {
+  transform: scale(1.05);
+}
+
+.meal-category-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: rgba(17, 17, 17, 0.85);
+  color: #FFFFFF;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.meal-card-details {
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.meal-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.meal-card-title {
+  font-size: 1.12rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-main);
+}
+
+.meal-calorie-pill {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+  background-color: #111111;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.meal-card-subtitle {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.meal-macro-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+.macro-chip {
+  flex: 1;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-sm);
+  padding: 6px 4px;
+  text-align: center;
+  font-size: 0.74rem;
+  color: var(--text-secondary);
+}
+
+.chip-val {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-main);
+  margin-right: 2px;
+}
+
+.nutrition-analysis-banner {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 36px 40px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.analysis-scanner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #059669;
+  background-color: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.nutrition-feature-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.nutri-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius-lg);
+  border: 1px solid transparent;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.nutri-feature-item:hover {
+  border-color: var(--border-subtle);
+  background-color: #ECECE9;
+}
+
+.nutri-feature-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.nutri-feature-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.nutri-feature-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.nutrition-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  align-items: stretch;
+}
+
+.meal-card {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: none;
   transition: transform var(--transition-smooth);
 }
 
 .meal-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px);
 }
 
 .meal-header {
@@ -1648,6 +1854,10 @@ button {
     grid-template-columns: 1fr;
     gap: 40px;
   }
+
+  .balanced-meals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   
   .footer-top {
     grid-template-columns: 1fr 1fr;
@@ -1696,8 +1906,13 @@ button {
   .problem-grid,
   .how-steps-grid,
   .intelligence-grid,
-  .stats-grid {
+  .stats-grid,
+  .balanced-meals-grid {
     grid-template-columns: 1fr;
+  }
+  
+  .nutrition-analysis-banner {
+    padding: 24px 20px;
   }
   
   .cta-wrapper {
