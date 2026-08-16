@@ -1,5 +1,6 @@
 import express from "express";
 import path from "path";
+import fs from "fs";
 import { createServer as createViteServer } from "vite";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
@@ -7,7 +8,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = 3000;
+// Dynamic port resolution for Render & cloud deployment
+const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
 app.use(express.json({ limit: "50mb" }));
 app.use(express.urlencoded({ extended: true, limit: "50mb" }));
@@ -22,19 +24,25 @@ function getGeminiClient(): GoogleGenAI | null {
     apiKey,
     httpOptions: {
       headers: {
-        "User-Agent": "aistudio-build",
+        "User-Agent": "gymbuddy-app",
       },
     },
   });
 }
 
-// 1. Health Check
+// 1. Health Check Endpoint (For Render, diagnostics & status monitoring)
 app.get("/api/health", (_req, res) => {
-  res.json({ status: "ok", timestamp: new Date().toISOString() });
+  res.json({
+    status: "ok",
+    app: "GymBuddy",
+    timestamp: new Date().toISOString(),
+    geminiConfigured: !!process.env.GEMINI_API_KEY,
+    environment: process.env.NODE_ENV || "development",
+  });
 });
 
-// 2. AI Coach Chat Endpoint
-app.post("/api/gemini/coach", async (req, res) => {
+// 2. AI Coach Chat Handler
+const handleCoachChat = async (req: express.Request, res: express.Response) => {
   try {
     const { message, history = [], profile = {} } = req.body;
     if (!message) {
@@ -62,7 +70,6 @@ Athlete Profile:
 Tone: Professional, direct, encouraging, precise, and highly actionable.
 Structure responses cleanly using markdown headers, bullet points, and bold keywords. Keep advice concise and easy to read during training sessions.`;
 
-    // Construct conversation contents
     const contents: any[] = [];
     if (Array.isArray(history)) {
       for (const item of history.slice(-6)) {
@@ -87,16 +94,19 @@ Structure responses cleanly using markdown headers, bullet points, and bold keyw
     const reply = response.text || "I have analyzed your request. Keep consistent tension throughout the movement and prioritize recovery.";
     res.json({ reply });
   } catch (error: any) {
-    console.error("Gemini Coach Error:", error);
+    console.error("[GymBuddy] Gemini Coach API Error:", error.message || error);
     res.status(500).json({
       error: error.message || "Failed to generate coaching response",
       fallbackReply: "Maintain neutral spine alignment, control your eccentric phase, and stay properly hydrated.",
     });
   }
-});
+};
 
-// 3. AI Form Analyzer Endpoint
-app.post("/api/gemini/analyze-form", async (req, res) => {
+app.post("/api/gemini/coach", handleCoachChat);
+app.post("/api/coach", handleCoachChat);
+
+// 3. AI Form Analyzer Handler
+const handleFormAnalyzer = async (req: express.Request, res: express.Response) => {
   try {
     const { exercise = "Barbell Squat", image, notes = "", experience = "Intermediate" } = req.body;
 
@@ -190,7 +200,7 @@ Return ONLY a valid JSON object matching this schema:
     const parsed = JSON.parse(response.text || "{}");
     res.json(parsed);
   } catch (error: any) {
-    console.error("Gemini Form Analyzer Error:", error);
+    console.error("[GymBuddy] Gemini Form Analyzer API Error:", error.message || error);
     // Fallback gracefully
     res.json({
       score: 88,
@@ -219,10 +229,14 @@ Return ONLY a valid JSON object matching this schema:
       summary: "Solid repetition overall. Minor adjustments to torso angle will optimize power transfer.",
     });
   }
-});
+};
 
-// 4. AI Workout Generator Endpoint
-app.post("/api/gemini/generate-workout", async (req, res) => {
+app.post("/api/gemini/analyze-form", handleFormAnalyzer);
+app.post("/api/analyze-form", handleFormAnalyzer);
+app.post("/api/analyze", handleFormAnalyzer);
+
+// 4. AI Workout Generator Handler
+const handleWorkoutGenerator = async (req: express.Request, res: express.Response) => {
   try {
     const {
       goal = "Muscle Building",
@@ -297,13 +311,16 @@ Return ONLY a valid JSON object matching this schema:
     const parsed = JSON.parse(response.text || "{}");
     res.json(parsed);
   } catch (error: any) {
-    console.error("Gemini Workout Generator Error:", error);
+    console.error("[GymBuddy] Gemini Workout Generator API Error:", error.message || error);
     res.status(500).json({ error: error.message || "Failed to generate workout" });
   }
-});
+};
 
-// 5. AI Nutrition & Macro Analyzer Endpoint
-app.post("/api/gemini/analyze-nutrition", async (req, res) => {
+app.post("/api/gemini/generate-workout", handleWorkoutGenerator);
+app.post("/api/workout", handleWorkoutGenerator);
+
+// 5. AI Nutrition & Macro Analyzer Handler
+const handleNutritionAnalyzer = async (req: express.Request, res: express.Response) => {
   const { mealDescription = "", image, mealType = "Lunch", calorieTarget = 2400, proteinTarget = 160 } = req.body || {};
   try {
     const ai = getGeminiClient();
@@ -404,14 +421,19 @@ Return ONLY a valid JSON object matching this schema:
 
     res.json(parsed);
   } catch (error: any) {
-    console.error("Gemini Nutrition Error:", error);
+    console.error("[GymBuddy] Gemini Nutrition API Error:", error.message || error);
     res.status(500).json({ error: error.message || "Failed to analyze meal with Gemini AI." });
   }
-});
+};
 
-// Vite & Static Asset Handling
-async function start() {
-  if (process.env.NODE_ENV !== "production") {
+app.post("/api/gemini/analyze-nutrition", handleNutritionAnalyzer);
+app.post("/api/nutrition", handleNutritionAnalyzer);
+
+// Vite & Static Asset Handling for Development and Render Production
+async function startServer() {
+  const isProduction = process.env.NODE_ENV === "production";
+
+  if (!isProduction) {
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "spa",
@@ -419,15 +441,77 @@ async function start() {
     app.use(vite.middlewares);
   } else {
     const distPath = path.join(process.cwd(), "dist");
-    app.use(express.static(distPath));
-    app.get("*", (_req, res) => {
-      res.sendFile(path.join(distPath, "index.html"));
+    const rootPath = process.cwd();
+
+    // Serve bundled assets from dist
+    if (fs.existsSync(distPath)) {
+      app.use(express.static(distPath));
+    }
+    // Also serve static assets, css, js, public folders if needed
+    app.use(express.static(rootPath));
+
+    const htmlPages = [
+      "index",
+      "login",
+      "signup",
+      "dashboard",
+      "form-analyzer",
+      "ai-coach",
+      "workout",
+      "nutrition",
+      "progress",
+      "challenges",
+      "settings",
+    ];
+
+    // Explicit route helpers for clean URLs and direct .html access
+    htmlPages.forEach((page) => {
+      const servePage = (_req: express.Request, res: express.Response) => {
+        const distFile = path.join(distPath, `${page}.html`);
+        if (fs.existsSync(distFile)) {
+          return res.sendFile(distFile);
+        }
+        const rootFile = path.join(rootPath, `${page}.html`);
+        if (fs.existsSync(rootFile)) {
+          return res.sendFile(rootFile);
+        }
+        res.sendFile(path.join(distPath, "index.html"));
+      };
+
+      app.get(`/${page}`, servePage);
+      app.get(`/${page}.html`, servePage);
+    });
+
+    // Root route
+    app.get("/", (_req, res) => {
+      const distIndex = path.join(distPath, "index.html");
+      if (fs.existsSync(distIndex)) {
+        return res.sendFile(distIndex);
+      }
+      res.sendFile(path.join(rootPath, "index.html"));
+    });
+
+    // Fallback for SPA routing while preserving 404 for unmatched APIs
+    app.get("*", (req, res) => {
+      if (req.path.startsWith("/api/")) {
+        return res.status(404).json({ error: "API endpoint not found" });
+      }
+      const distIndex = path.join(distPath, "index.html");
+      if (fs.existsSync(distIndex)) {
+        return res.sendFile(distIndex);
+      }
+      res.sendFile(path.join(rootPath, "index.html"));
     });
   }
 
   app.listen(PORT, "0.0.0.0", () => {
-    console.log(`GymBuddy Server running on http://0.0.0.0:${PORT}`);
+    console.log(`=========================================`);
+    console.log(`🚀 GymBuddy Server is active & listening`);
+    console.log(`📡 Host: 0.0.0.0 | Port: ${PORT}`);
+    console.log(`🌐 Environment: ${process.env.NODE_ENV || "development"}`);
+    console.log(`🔑 Gemini API: ${process.env.GEMINI_API_KEY ? "Configured" : "Not Detected (Using Smart Fallbacks)"}`);
+    console.log(`=========================================`);
   });
 }
 
-start();
+startServer();
