@@ -17,7 +17,6 @@ export default defineConfig(() => {
         input: {
           main: path.resolve(__dirname, 'index.html'),
           login: path.resolve(__dirname, 'login.html'),
-          signup: path.resolve(__dirname, 'signup.html'),
           dashboard: path.resolve(__dirname, 'dashboard.html'),
           formAnalyzer: path.resolve(__dirname, 'form-analyzer.html'),
           aiCoach: path.resolve(__dirname, 'ai-coach.html'),

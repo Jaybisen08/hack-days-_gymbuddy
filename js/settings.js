@@ -1,12 +1,11 @@
 /**
- * FORMCOACH AI — SETTINGS CONTROLLER
- * Athlete Profile Persistence (Firestore/Local), Preference Toggles,
- * Full Data Export (JSON format), and Account Termination.
+ * GYMBUDDY — SETTINGS CONTROLLER
+ * Athlete Profile Persistence, Preference Toggles,
+ * Full Data Export (JSON format), and Demo Session Management.
  */
 
 import { initSharedNavigation, showToast } from "./shared-nav.js";
 import { getUserProfile, saveUserProfile, getDashboardData, getWorkouts, getFormAnalyses, getNutritionMeals } from "./db.js";
-import { auth, signOut } from "./firebase-config.js";
 
 let activeUserUid = null;
 let currentProfile = null;
@@ -115,13 +114,9 @@ function setupExportData() {
 
 function setupSignOutAction() {
   const signoutBtn = document.getElementById("btnSignOutFull");
-  signoutBtn?.addEventListener("click", async () => {
+  signoutBtn?.addEventListener("click", () => {
+    localStorage.removeItem("gymbuddy_active_user");
     localStorage.removeItem("formcoach_demo_user");
-    try {
-      await signOut(auth);
-    } catch (e) {
-      console.log("Signout note:", e);
-    }
     window.location.href = "login.html";
   });
 }

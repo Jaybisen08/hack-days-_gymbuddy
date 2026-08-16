@@ -1,10 +1,9 @@
 /**
- * FORMCOACH AI — SHARED NAVIGATION & AUTH CONTROLLER
- * Ensures reliable routing guards, active states, mobile drawers,
- * profile dropdowns, notifications, and logout actions across all pages.
+ * GYMBUDDY — SHARED NAVIGATION & SESSION CONTROLLER
+ * Ensures reliable routing, active states, mobile drawer,
+ * profile dropdown, notifications, and demo session actions across all pages.
  */
 
-import { auth, signOut, onAuthStateChanged } from "./firebase-config.js";
 import { getUserProfile } from "./db.js";
 
 export function showToast(message) {
@@ -22,28 +21,33 @@ export function showToast(message) {
   }, 3500);
 }
 
+export function getActiveUser() {
+  try {
+    const raw = localStorage.getItem("gymbuddy_active_user") || localStorage.getItem("formcoach_demo_user");
+    if (raw) {
+      return JSON.parse(raw);
+    }
+  } catch (e) {
+    console.warn("Could not parse active user:", e);
+  }
+  // Default Demo Athlete if none is explicitly set
+  const defaultDemo = {
+    uid: "demo-athlete-1",
+    displayName: "Alex Johnson",
+    email: "alex.demo@gymbuddy.ai",
+    photoURL: null,
+    isDemo: true,
+  };
+  localStorage.setItem("gymbuddy_active_user", JSON.stringify(defaultDemo));
+  return defaultDemo;
+}
+
 export function initSharedNavigation(onUserReady) {
-  // 1. AUTH GUARD
-  onAuthStateChanged(auth, async (user) => {
-    let currentUser = user;
-    if (!currentUser) {
-      const rawDemo = localStorage.getItem("formcoach_demo_user");
-      if (rawDemo) {
-        try {
-          currentUser = JSON.parse(rawDemo);
-        } catch (e) {
-          console.warn("Invalid demo user in localStorage");
-        }
-      }
-    }
+  // 1. SESSION INITIALIZATION
+  const currentUser = getActiveUser();
 
-    if (!currentUser) {
-      window.location.href = "login.html";
-      return;
-    }
-
-    // Hydrate user profile from DB
-    const profile = await getUserProfile(currentUser.uid || "demo-athlete-1", currentUser);
+  // Hydrate user profile from persistent local DB
+  getUserProfile(currentUser.uid || "demo-athlete-1", currentUser).then((profile) => {
     hydrateNavProfile(profile);
 
     if (typeof onUserReady === "function") {
@@ -52,13 +56,21 @@ export function initSharedNavigation(onUserReady) {
   });
 
   // 2. DOM INTERACTION BINDINGS
-  document.addEventListener("DOMContentLoaded", () => {
-    setupMobileSidebar();
-    setupProfileDropdown();
-    setupLogoutButtons();
-    setupNotifications();
-    highlightActiveNavLink();
-  });
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => {
+      bindNavControls();
+    });
+  } else {
+    bindNavControls();
+  }
+}
+
+function bindNavControls() {
+  setupMobileSidebar();
+  setupProfileDropdown();
+  setupLogoutButtons();
+  setupNotifications();
+  highlightActiveNavLink();
 }
 
 function hydrateNavProfile(profile) {
@@ -133,14 +145,10 @@ function setupProfileDropdown() {
 }
 
 function setupLogoutButtons() {
-  const handleLogout = async (e) => {
+  const handleLogout = (e) => {
     e.preventDefault();
+    localStorage.removeItem("gymbuddy_active_user");
     localStorage.removeItem("formcoach_demo_user");
-    try {
-      await signOut(auth);
-    } catch (err) {
-      console.log("SignOut note:", err.message);
-    }
     window.location.href = "login.html";
   };
 
