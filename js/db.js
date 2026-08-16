@@ -1,24 +1,8 @@
 /**
- * FORMCOACH AI — DATA & FIRESTORE STORAGE ENGINE
- * Handles Firestore collections and local persistence for athletes,
- * workouts, form scans, meal logs, progress metrics, and challenges.
+ * GYMBUDDY — ATHLETE DATA & PERSISTENCE ENGINE
+ * 100% Client-Side Persistent Storage Engine.
+ * Manages athlete profiles, workouts, form scans, meal logs, hydration, PRs, and community challenges.
  */
-
-import {
-  db,
-  doc,
-  setDoc,
-  getDoc,
-  updateDoc,
-  collection,
-  addDoc,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  limit,
-  serverTimestamp
-} from "./firebase-config.js";
 
 // Helper: current date string YYYY-MM-DD
 export function getTodayDateString() {
@@ -26,10 +10,10 @@ export function getTodayDateString() {
   return d.toISOString().split("T")[0];
 }
 
-// Local storage fallback helper per user ID
+// Local storage helper per user ID
 function getLocalStore(uid, key, defaultValue) {
   try {
-    const raw = localStorage.getItem(`formcoach_${uid}_${key}`);
+    const raw = localStorage.getItem(`gymbuddy_${uid}_${key}`) || localStorage.getItem(`formcoach_${uid}_${key}`);
     return raw !== null ? JSON.parse(raw) : defaultValue;
   } catch (e) {
     return defaultValue;
@@ -38,6 +22,7 @@ function getLocalStore(uid, key, defaultValue) {
 
 function setLocalStore(uid, key, value) {
   try {
+    localStorage.setItem(`gymbuddy_${uid}_${key}`, JSON.stringify(value));
     localStorage.setItem(`formcoach_${uid}_${key}`, JSON.stringify(value));
   } catch (e) {
     console.warn("Storage quota or error:", e);
@@ -73,24 +58,6 @@ export async function getUserProfile(uid, fallbackUser = {}) {
     ...getLocalStore(uid, "profile", {})
   };
 
-  try {
-    if (db) {
-      const userRef = doc(db, "users", uid);
-      const snap = await getDoc(userRef);
-      if (snap.exists()) {
-        const data = snap.data();
-        const merged = { ...defaultProfile, ...data };
-        setLocalStore(uid, "profile", merged);
-        return merged;
-      } else {
-        // Initialize user doc in Firestore
-        await setDoc(userRef, defaultProfile, { merge: true });
-      }
-    }
-  } catch (err) {
-    console.log("Using local profile fallback:", err.message);
-  }
-
   setLocalStore(uid, "profile", defaultProfile);
   return defaultProfile;
 }
@@ -99,16 +66,6 @@ export async function saveUserProfile(uid, updates) {
   const current = await getUserProfile(uid);
   const merged = { ...current, ...updates, updatedAt: new Date().toISOString() };
   setLocalStore(uid, "profile", merged);
-
-  try {
-    if (db) {
-      const userRef = doc(db, "users", uid);
-      await setDoc(userRef, merged, { merge: true });
-    }
-  } catch (err) {
-    console.log("Firestore profile update offline fallback:", err.message);
-  }
-
   return merged;
 }
 
@@ -137,7 +94,7 @@ export async function getDashboardData(uid) {
   const totalWorkoutsCount = workouts.length > 0 ? workouts.length : (profile.totalWorkouts || 0);
   const totalCalsBurned = workouts.reduce((acc, w) => acc + (Number(w.caloriesBurned) || 350), 0) || profile.totalCaloriesBurned || 0;
 
-  // Streak calculation based on recent activity
+  // Streak calculation
   let streak = profile.streakDays || 0;
   if (workouts.length > 0 && streak === 0) {
     streak = 1;
@@ -172,25 +129,6 @@ export async function getWorkouts(uid) {
   const local = getLocalStore(uid, "workouts", null);
   if (local !== null) return local;
 
-  try {
-    if (db) {
-      const q = query(
-        collection(db, "users", uid, "workouts"),
-        orderBy("timestamp", "desc"),
-        limit(50)
-      );
-      const snap = await getDocs(q);
-      if (!snap.empty) {
-        const list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        setLocalStore(uid, "workouts", list);
-        return list;
-      }
-    }
-  } catch (e) {
-    console.log("Workout fetch note:", e.message);
-  }
-
-  // Default for fresh account is empty array
   setLocalStore(uid, "workouts", []);
   return [];
 }
@@ -229,40 +167,13 @@ export async function logWorkout(uid, workoutData) {
     tier: nextTier
   });
 
-  try {
-    if (db) {
-      await addDoc(collection(db, "users", uid, "workouts"), newWorkout);
-    }
-  } catch (e) {
-    console.log("Save workout to firestore note:", e.message);
-  }
-
   return newWorkout;
 }
 
-// 4. FORM ANALYZER SCANS (stored in users/{uid}/formAnalyses and users/{uid}/form_scans)
+// 4. FORM ANALYZER SCANS
 export async function getFormAnalyses(uid) {
   const local = getLocalStore(uid, "form_scans", null);
   if (local !== null) return local;
-
-  try {
-    if (db) {
-      // Check formAnalyses subcollection
-      const q = query(
-        collection(db, "users", uid, "formAnalyses"),
-        orderBy("createdAt", "desc"),
-        limit(50)
-      );
-      const snap = await getDocs(q);
-      if (!snap.empty) {
-        const list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        setLocalStore(uid, "form_scans", list);
-        return list;
-      }
-    }
-  } catch (e) {
-    console.log("Form scan fetch note:", e.message);
-  }
 
   setLocalStore(uid, "form_scans", []);
   return [];
@@ -306,40 +217,14 @@ export async function saveFormAnalysis(uid, analysis) {
     xpPoints: (profile.xpPoints || 0) + 50
   });
 
-  try {
-    if (db) {
-      await addDoc(collection(db, "users", uid, "formAnalyses"), newScan);
-    }
-  } catch (e) {
-    console.log("Save form analysis fallback:", e.message);
-  }
-
   return newScan;
 }
 
-// 5. NUTRITION MEALS & WATER (stored in users/{uid}/meals)
+// 5. NUTRITION MEALS & WATER
 export async function getMeals(uid, dateStr = getTodayDateString()) {
   const local = getLocalStore(uid, "meals", null);
   if (local !== null) {
     return local.filter(m => !dateStr || m.date === dateStr || !m.date);
-  }
-
-  try {
-    if (db) {
-      const q = query(
-        collection(db, "users", uid, "meals"),
-        orderBy("createdAt", "desc"),
-        limit(50)
-      );
-      const snap = await getDocs(q);
-      if (!snap.empty) {
-        const list = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-        setLocalStore(uid, "meals", list);
-        return dateStr ? list.filter(m => m.date === dateStr || !m.date) : list;
-      }
-    }
-  } catch (e) {
-    console.log("Firestore meal fetch note:", e.message);
   }
 
   setLocalStore(uid, "meals", []);
@@ -389,14 +274,6 @@ export async function logMeal(uid, mealData) {
   await saveUserProfile(uid, {
     xpPoints: (profile.xpPoints || 0) + 30
   });
-
-  try {
-    if (db) {
-      await addDoc(collection(db, "users", uid, "meals"), newMeal);
-    }
-  } catch (e) {
-    console.log("Firestore log meal fallback:", e.message);
-  }
 
   return newMeal;
 }

@@ -1,6 +1,6 @@
 /**
- * FORMCOACH AI — DASHBOARD CONTROLLER
- * Real Firebase/DB Hydration, Live Metric Summaries, Interactive Routine
+ * GYMBUDDY — DASHBOARD CONTROLLER
+ * Athlete DB Hydration, Live Metric Summaries, Interactive Routine
  * Checklist, Quick Action Routing, and Dynamic Biomechanics Insights.
  */
 

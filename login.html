@@ -155,50 +155,6 @@
       </main>
     </div>
 
-    <!-- Firebase Google Auth Helper Modal -->
-    <div class="modal-overlay" id="unauthorizedDomainModal" role="dialog" aria-modal="true" aria-labelledby="domainModalTitle">
-      <div class="modal-card" style="max-width: 490px;">
-        <div class="modal-header">
-          <h3 class="modal-title" id="domainModalTitle">Firebase Google Sign-In Setup</h3>
-          <button type="button" class="modal-close-btn" id="closeDomainModalBtn" aria-label="Close dialog">✕</button>
-        </div>
-        <p class="modal-desc" id="domainModalDesc" style="margin-bottom: 14px;">
-          Google Sign-In needs to be configured in your Firebase Console project.
-        </p>
-
-        <!-- Domain Box (visible when unauthorized-domain) -->
-        <div id="domainCopySection" style="background-color: #F8F9FA; border: 1px solid #E5E7EB; border-radius: 8px; padding: 12px 14px; margin-bottom: 16px;">
-          <div style="font-size: 0.78rem; font-weight: 700; color: #666666; text-transform: uppercase; margin-bottom: 6px;">Your Current Domain</div>
-          <div style="display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-            <code id="domainHostDisplay" style="font-family: monospace; font-size: 0.85rem; color: #111111; word-break: break-all; font-weight: 600;">...</code>
-            <button type="button" id="copyDomainBtn" class="btn-modal-secondary" style="padding: 6px 12px; font-size: 0.8rem; white-space: nowrap;">
-              Copy
-            </button>
-          </div>
-          <span id="copyDomainFeedback" style="display: none; font-size: 0.78rem; color: #10B981; font-weight: 600; margin-top: 4px;"></span>
-        </div>
-
-        <!-- Dynamic Instructions List -->
-        <div id="domainStepsSection" style="font-size: 0.84rem; color: #4B5563; line-height: 1.5; margin-bottom: 20px;">
-          <strong id="stepsHeaderTitle">Quick Fix in Firebase Console:</strong>
-          <ol id="stepsList" style="margin-left: 20px; margin-top: 6px;">
-            <li>Go to <strong style="color: #111111;">Authentication &gt; Sign-in method</strong>.</li>
-            <li>Click <strong style="color: #111111;">Google</strong> and toggle <strong style="color: #111111;">Enable</strong>.</li>
-            <li>Select your support email and click <strong style="color: #111111;">Save</strong>.</li>
-          </ol>
-        </div>
-
-        <div class="modal-actions" style="display: flex; justify-content: space-between; align-items: center; gap: 10px;">
-          <button type="button" class="btn-modal-primary" id="demoFromModalBtn" style="background-color: #111111;">
-            ⚡ Instant Athlete Access
-          </button>
-          <button type="button" class="btn-modal-secondary" id="dismissDomainModalBtn">
-            Use Email / Close
-          </button>
-        </div>
-      </div>
-    </div>
-
     <!-- Password Reset Modal -->
     <div class="modal-overlay" id="resetPasswordModal" role="dialog" aria-modal="true" aria-labelledby="resetModalTitle">
       <div class="modal-card">
@@ -231,7 +187,7 @@
       </div>
     </div>
 
-    <!-- Firebase Auth Modular Logic -->
+    <!-- Auth JavaScript Module -->
     <script type="module" src="js/auth.js"></script>
   </body>
 </html>
