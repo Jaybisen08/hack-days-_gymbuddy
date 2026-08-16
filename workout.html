@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GymBuddy — Workout</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <a href="dashboard.html" class="sidebar-brand" id="sidebarBrand">
+            <span class="brand-dot"></span>
+            <span>GYMBUDDY</span>
+          </a>
+          <nav aria-label="Dashboard Navigation">
+            <ul class="sidebar-nav">
+              <li class="nav-item">
+                <a href="dashboard.html" class="nav-link" id="sidebarNavDashboard">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </span>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="form-analyzer.html" class="nav-link" id="sidebarNavAnalyzer">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  </span>
+                  <span>Exercise Analyser</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="ai-coach.html" class="nav-link" id="sidebarNavCoach">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                  </span>
+                  <span>AI Coach</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="workout.html" class="nav-link active" id="sidebarNavWorkout">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1a2 2 0 0 0-2.8 0L16 21"></path><path d="m3 3 1 1a2 2 0 0 0 2.8 0L8 3"></path><path d="m14.5 9.5 2-2a2 2 0 0 1 2.8 0l1.7 1.7a2 2 0 0 1 0 2.8l-2 2"></path><path d="m9.5 14.5-2 2a2 2 0 0 1-2.8 0L3 14.8a2 2 0 0 1 0-2.8l2-2"></path></svg>
+                  </span>
+                  <span>Workout</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="nutrition.html" class="nav-link" id="sidebarNavNutrition">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                  </span>
+                  <span>Nutrition</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="progress.html" class="nav-link" id="sidebarNavProgress">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  </span>
+                  <span>Progress</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="challenges.html" class="nav-link" id="sidebarNavChallenges">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"></path></svg>
+                  </span>
+                  <span>Challenges</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <ul class="sidebar-bottom">
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link" id="sidebarNavSettings">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </span>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link nav-link-logout" id="sidebarLogoutBtn" style="background: none; border: none; width: 100%; cursor: pointer;">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+              </span>
+              <span>Logout</span>
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <!-- MAIN CONTENT -->
+      <div class="main-wrapper">
+        <header class="top-header" id="topHeader">
+          <div class="header-left">
+            <button type="button" class="mobile-toggle-btn" id="mobileSidebarToggle" aria-label="Open sidebar">☰</button>
+            <h1 class="header-title">Workout Routine & Active Session</h1>
+          </div>
+          <div class="header-right">
+            <button type="button" class="notification-btn" id="notificationBtn" aria-label="Notifications">
+              <span aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+              </span>
+            </button>
+            <div class="profile-container">
+              <div class="profile-pill" id="profilePill" role="button">
+                <div class="profile-avatar" id="headerUserAvatar">A</div>
+                <span class="profile-name" id="headerUserName">Athlete</span>
+                <span class="dropdown-arrow">▼</span>
+              </div>
+              <div class="profile-dropdown" id="profileDropdown">
+                <div style="padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 4px;">
+                  <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);" id="dropdownUserFullName">Athlete</div>
+                  <div style="font-size: 0.74rem; color: var(--text-secondary);" id="dropdownUserEmail">athlete@gymbuddy.ai</div>
+                </div>
+                <a href="settings.html" class="dropdown-item">Profile Details</a>
+                <a href="settings.html" class="dropdown-item">Preferences</a>
+                <div class="dropdown-divider"></div>
+                <button type="button" class="dropdown-item danger" id="dropdownLogoutBtn">Logout</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="dashboard-content">
+          <!-- Top Action Bar -->
+          <div style="background-color: var(--bg-surface); padding: 18px 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px;">
+            <div>
+              <h2 style="font-size: 1.15rem; font-weight: 800; color: var(--text-primary);" id="activeRoutineTitle">Upper Body Push Hypertrophy</h2>
+              <div style="font-size: 0.82rem; color: var(--text-secondary); margin-top: 2px;" id="activeRoutineSubtitle">Target: Chest, Shoulders, Triceps • 45 Mins • RPE 8</div>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button type="button" class="btn-start-today" id="btnOpenGeneratorModal" style="padding: 10px 18px; font-size: 0.88rem;">
+                <span>✨ Generate Routine with Gemini</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Active Session Tracker Grid -->
+          <div class="dashboard-grid-2col" style="margin-top: 20px;">
+            <!-- Left Column: Active Exercise Checklist & Set Loggers -->
+            <div class="dashboard-card" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="card-title-row">
+                <h3 class="card-title">Active Exercise Protocol</h3>
+                <span class="workout-badge" id="sessionProgressBadge">0 / 4 completed</span>
+              </div>
+
+              <!-- Exercise List Container -->
+              <div id="workoutExercisesList" style="display: flex; flex-direction: column; gap: 12px;">
+                <!-- Hydrated dynamically -->
+              </div>
+
+              <!-- Finish Workout Button -->
+              <button type="button" class="btn-start-today" id="btnCompleteWorkoutSession" style="width: 100%; justify-content: center; background: #111111; padding: 14px; font-size: 0.96rem; margin-top: 8px;">
+                <span>✓ Complete & Save Workout Session (+100 XP)</span>
+              </button>
+            </div>
+
+            <!-- Right Column: Rest Timer & Coaching Warmup/Cooldown Protocol -->
+            <div class="right-column-stack">
+              <!-- Rest Timer Card -->
+              <div class="dashboard-card" style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; padding: 24px;">
+                <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Intra-Set Rest Timer</div>
+                <div style="font-size: 3rem; font-weight: 800; font-family: monospace; color: var(--text-primary); line-height: 1;" id="restTimerDisplay">01:30</div>
+                <div style="display: flex; gap: 8px;">
+                  <button type="button" class="prompt-chip" data-seconds="60">60s</button>
+                  <button type="button" class="prompt-chip" data-seconds="90">90s</button>
+                  <button type="button" class="prompt-chip" data-seconds="120">120s</button>
+                  <button type="button" class="prompt-chip" data-seconds="180">180s (Compound)</button>
+                </div>
+                <div style="display: flex; gap: 10px; width: 100%; margin-top: 4px;">
+                  <button type="button" class="btn-start-today" id="btnStartRestTimer" style="flex: 1; justify-content: center; padding: 10px;">Start Rest</button>
+                  <button type="button" class="btn-ai-action" id="btnResetRestTimer" style="padding: 10px 18px;">Reset</button>
+                </div>
+              </div>
+
+              <!-- AI Warmup & Coaching Cue Protocol -->
+              <div class="ai-insight-card">
+                <div class="ai-insight-header">
+                  <span class="ai-insight-badge">CSCS COACHING CUE</span>
+                  <span id="warmupTitle">Kinetic Primer</span>
+                </div>
+                <div class="ai-insight-text" id="warmupProtocolText">
+                  Perform 2 sets of Dynamic Cat-Cow, Band Pull-Aparts (15 reps), and 1 lightweight warmup set with 50% working weight before your first heavy working set. Control the 3-second eccentric phase on all movements.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Workout History Table -->
+          <div class="dashboard-card" style="margin-top: 24px;">
+            <div class="card-title-row">
+              <h3 class="card-title">Completed Workout History</h3>
+              <span class="workout-badge" id="workoutHistoryBadge">Loading history...</span>
+            </div>
+            <div id="workoutHistoryContainer" style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+              <!-- Hydrated dynamically -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <!-- AI Workout Generator Modal -->
+    <div class="modal-backdrop" id="generatorModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-title">✨ Gemini AI Workout Protocol Generator</div>
+          <button type="button" class="btn-close-modal" id="btnCloseGeneratorModal">✕</button>
+        </div>
+        <form id="generatorForm" style="display: flex; flex-direction: column; gap: 16px;">
+          <div>
+            <label for="modalGoalSelect" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">TRAINING GOAL</label>
+            <select id="modalGoalSelect" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; background: var(--bg-subtle);">
+              <option value="Muscle Hypertrophy & Density">Muscle Hypertrophy & Density (8-12 reps)</option>
+              <option value="Maximal Strength & Power">Maximal Strength & Power (3-6 reps)</option>
+              <option value="Athletic Conditioning & Fat Loss">Athletic Conditioning & Fat Loss</option>
+              <option value="Functional Joint Mobility & Resilience">Functional Joint Mobility & Resilience</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="modalMuscleSelect" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">TARGET MUSCLE GROUP</label>
+            <select id="modalMuscleSelect" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; background: var(--bg-subtle);">
+              <option value="Full Body Compound">Full Body Compound</option>
+              <option value="Upper Body Push (Chest, Shoulders, Triceps)">Upper Body Push (Chest, Shoulders, Triceps)</option>
+              <option value="Upper Body Pull (Back, Lats, Biceps, Rear Delts)">Upper Body Pull (Back, Lats, Biceps)</option>
+              <option value="Legs & Posterior Chain (Quads, Hamstrings, Glutes)">Legs & Posterior Chain (Quads, Hamstrings, Glutes)</option>
+              <option value="Core Stability & Arms">Core Stability & Arms</option>
+            </select>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+            <div>
+              <label for="modalEquipmentSelect" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">EQUIPMENT</label>
+              <select id="modalEquipmentSelect" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; background: var(--bg-subtle);">
+                <option value="Full Gym (Barbell, DB, Cables, Machines)">Full Commercial Gym</option>
+                <option value="Dumbbells Only">Dumbbells & Bench</option>
+                <option value="Barbell & Power Rack">Barbell & Power Rack</option>
+                <option value="Bodyweight & Resistance Bands">Bodyweight & Bands</option>
+              </select>
+            </div>
+            <div>
+              <label for="modalDurationSelect" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">TIME BUDGET</label>
+              <select id="modalDurationSelect" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; background: var(--bg-subtle);">
+                <option value="45">45 Minutes</option>
+                <option value="30">30 Minutes (Express)</option>
+                <option value="60">60 Minutes</option>
+                <option value="75">75 Minutes</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label for="modalInjuriesInput" style="font-size: 0.8rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">LIMITATIONS / SENSITIVITIES (OPTIONAL)</label>
+            <input type="text" id="modalInjuriesInput" placeholder="e.g., Lower back tightness, rotator cuff sensitivity, or None" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; background: var(--bg-subtle);" />
+          </div>
+
+          <button type="submit" class="btn-start-today" id="btnSubmitGenerateWorkout" style="width: 100%; justify-content: center; padding: 12px; margin-top: 8px;">
+            <span>Generate & Load Protocol</span>
+            <span>→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="js/workout.js"></script>
+  </body>
+</html>

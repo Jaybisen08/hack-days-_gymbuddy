@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GymBuddy — Nutrition</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <!-- SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <a href="dashboard.html" class="sidebar-brand" id="sidebarBrand">
+            <span class="brand-dot"></span>
+            <span>GYMBUDDY</span>
+          </a>
+          <nav aria-label="Dashboard Navigation">
+            <ul class="sidebar-nav">
+              <li class="nav-item">
+                <a href="dashboard.html" class="nav-link" id="sidebarNavDashboard">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </span>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="form-analyzer.html" class="nav-link" id="sidebarNavAnalyzer">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  </span>
+                  <span>Exercise Analyser</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="ai-coach.html" class="nav-link" id="sidebarNavCoach">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                  </span>
+                  <span>AI Coach</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="workout.html" class="nav-link" id="sidebarNavWorkout">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1a2 2 0 0 0-2.8 0L16 21"></path><path d="m3 3 1 1a2 2 0 0 0 2.8 0L8 3"></path><path d="m14.5 9.5 2-2a2 2 0 0 1 2.8 0l1.7 1.7a2 2 0 0 1 0 2.8l-2 2"></path><path d="m9.5 14.5-2 2a2 2 0 0 1-2.8 0L3 14.8a2 2 0 0 1 0-2.8l2-2"></path></svg>
+                  </span>
+                  <span>Workout</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="nutrition.html" class="nav-link active" id="sidebarNavNutrition">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                  </span>
+                  <span>Nutrition</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="progress.html" class="nav-link" id="sidebarNavProgress">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  </span>
+                  <span>Progress</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="challenges.html" class="nav-link" id="sidebarNavChallenges">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"></path></svg>
+                  </span>
+                  <span>Challenges</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <ul class="sidebar-bottom">
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link" id="sidebarNavSettings">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </span>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link nav-link-logout" id="sidebarLogoutBtn" style="background: none; border: none; width: 100%; cursor: pointer;">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+              </span>
+              <span>Logout</span>
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <!-- MAIN CONTENT -->
+      <div class="main-wrapper">
+        <header class="top-header" id="topHeader">
+          <div class="header-left">
+            <button type="button" class="mobile-toggle-btn" id="mobileSidebarToggle" aria-label="Open sidebar">☰</button>
+            <h1 class="header-title">Nutrition & Macro Intelligence</h1>
+          </div>
+          <div class="header-right">
+            <button type="button" class="notification-btn" id="notificationBtn" aria-label="Notifications">
+              <span aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+              </span>
+            </button>
+            <div class="profile-container">
+              <div class="profile-pill" id="profilePill" role="button">
+                <div class="profile-avatar" id="headerUserAvatar">A</div>
+                <span class="profile-name" id="headerUserName">Athlete</span>
+                <span class="dropdown-arrow">▼</span>
+              </div>
+              <div class="profile-dropdown" id="profileDropdown">
+                <div style="padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 4px;">
+                  <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);" id="dropdownUserFullName">Athlete</div>
+                  <div style="font-size: 0.74rem; color: var(--text-secondary);" id="dropdownUserEmail">athlete@gymbuddy.ai</div>
+                </div>
+                <a href="settings.html" class="dropdown-item">Profile Details</a>
+                <a href="settings.html" class="dropdown-item">Preferences</a>
+                <div class="dropdown-divider"></div>
+                <button type="button" class="dropdown-item danger" id="dropdownLogoutBtn">Logout</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="dashboard-content">
+          <!-- Daily Macro Overview Rings -->
+          <div class="macro-grid">
+            <div class="macro-box">
+              <div class="macro-label">CALORIES TODAY</div>
+              <div class="macro-val" id="macroValCalories">0 <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">/ 2,400 kcal</span></div>
+              <div class="macro-bar-track">
+                <div class="macro-bar-fill" id="macroBarCalories" style="width: 0%; background-color: var(--accent);"></div>
+              </div>
+            </div>
+
+            <div class="macro-box">
+              <div class="macro-label">PROTEIN (4 kcal/g)</div>
+              <div class="macro-val" id="macroValProtein">0g <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">/ 160g</span></div>
+              <div class="macro-bar-track">
+                <div class="macro-bar-fill" id="macroBarProtein" style="width: 0%; background-color: #10B981;"></div>
+              </div>
+            </div>
+
+            <div class="macro-box">
+              <div class="macro-label">CARBOHYDRATES</div>
+              <div class="macro-val" id="macroValCarbs">0g <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">/ 260g</span></div>
+              <div class="macro-bar-track">
+                <div class="macro-bar-fill" id="macroBarCarbs" style="width: 0%; background-color: #3B82F6;"></div>
+              </div>
+            </div>
+
+            <div class="macro-box">
+              <div class="macro-label">DIETARY FATS</div>
+              <div class="macro-val" id="macroValFats">0g <span style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">/ 65g</span></div>
+              <div class="macro-bar-track">
+                <div class="macro-bar-fill" id="macroBarFats" style="width: 0%; background-color: #F59E0B;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2-Column Nutrition Workspace: AI Scanner vs Water & Meals -->
+          <div class="dashboard-grid-2col" style="margin-top: 20px;">
+            <!-- Left: AI Meal Scanner & Meal Logger Form -->
+            <div class="dashboard-card" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="card-title-row">
+                <h3 class="card-title">✨ Gemini AI Meal & Macro Scanner</h3>
+                <span class="badge-tag badge-accent">Instant Macro Breakdown</span>
+              </div>
+
+              <form id="mealScanForm" style="display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                  <label for="mealTypeSelect" style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">MEAL OCCASION</label>
+                  <select id="mealTypeSelect" style="width: 100%; padding: 8px 12px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; background: var(--bg-subtle);">
+                    <option value="Lunch">Lunch</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Post-Workout Snack">Post-Workout Snack</option>
+                    <option value="Pre-Workout Meal">Pre-Workout Meal</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="mealDescriptionInput" style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">MEAL DESCRIPTION OR INGREDIENTS</label>
+                  <textarea id="mealDescriptionInput" rows="3" placeholder="e.g., 200g grilled salmon, 1 cup cooked brown rice, 1 cup steamed broccoli, 1 tbsp olive oil" style="width: 100%; padding: 10px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; font-family: inherit; background: var(--bg-subtle);"></textarea>
+                </div>
+
+                <!-- Photo Upload Area & Preview -->
+                <div>
+                  <div style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 6px;">PLATE PHOTO (OPTIONAL)</div>
+                  
+                  <div id="photoDropArea" style="border: 2px dashed var(--border-subtle); border-radius: var(--radius-md); padding: 16px; text-align: center; background: var(--bg-subtle); cursor: pointer; transition: all 0.2s ease;">
+                    <input type="file" id="mealPhotoInput" accept="image/jpeg,image/png,image/webp,image/jpg" style="display: none;" />
+                    <div id="photoPromptState">
+                      <div style="font-size: 1.6rem; margin-bottom: 4px;">📷</div>
+                      <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);">Click or drag & drop a meal photo</div>
+                      <div style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px;">Supports JPEG, PNG, WebP (up to 15MB)</div>
+                    </div>
+
+                    <!-- Photo Preview Box (hidden initially) -->
+                    <div id="photoPreviewContainer" style="display: none; align-items: center; gap: 14px; text-align: left;">
+                      <img id="mealPhotoPreviewImg" src="" alt="Meal photo preview" style="width: 72px; height: 72px; object-fit: cover; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);" />
+                      <div style="flex: 1; min-width: 0;">
+                        <div id="photoFileName" style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">meal-photo.jpg</div>
+                        <div id="photoFileSize" style="font-size: 0.75rem; color: var(--text-secondary); margin-top: 2px;">-- MB</div>
+                        <div id="photoUploadStatus" style="font-size: 0.75rem; color: #10B981; font-weight: 700; margin-top: 4px;">✓ Photo loaded & ready for analysis</div>
+                      </div>
+                      <button type="button" id="btnRemovePhoto" style="background: none; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 6px 10px; font-size: 0.75rem; cursor: pointer; color: var(--text-secondary);">Remove</button>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px;">
+                  <button type="submit" class="btn-start-today" id="btnAnalyzeMeal" style="flex: 1; justify-content: center; padding: 12px 18px;">
+                    <span>Analyze & Calculate Macros</span>
+                    <span>→</span>
+                  </button>
+                </div>
+              </form>
+
+              <!-- Parsed Meal Analysis Result (hidden until actual analysis exists) -->
+              <div id="mealAnalysisCard" style="background: #FAFAFA; border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 18px; display: none; flex-direction: column; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
+                  <div>
+                    <div style="font-size: 1rem; font-weight: 800; color: var(--text-primary);" id="analyzedMealName">--</div>
+                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 2px;" id="analyzedMealCategory">--</div>
+                  </div>
+                  <span class="badge-tag badge-green" id="mealQualityBadge">--</span>
+                </div>
+
+                <!-- Detected Foods Chips -->
+                <div>
+                  <div style="font-size: 0.72rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-bottom: 6px;">Detected Plate Items</div>
+                  <div id="detectedFoodsList" style="display: flex; flex-wrap: wrap; gap: 6px;">
+                    <!-- chips populated dynamically -->
+                  </div>
+                </div>
+
+                <!-- 5 Macro Metrics Cards: Calories, Protein, Carbohydrates, Fat, Fiber -->
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; text-align: center; background: #FFFFFF; padding: 12px 6px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div>
+                    <div style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 700;">CALORIES</div>
+                    <div style="font-size: 0.92rem; font-weight: 800; color: var(--text-primary);" id="resCalories">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 700;">PROTEIN</div>
+                    <div style="font-size: 0.92rem; font-weight: 800; color: #10B981;" id="resProtein">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 700;">CARBS</div>
+                    <div style="font-size: 0.92rem; font-weight: 800; color: #3B82F6;" id="resCarbs">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 700;">FAT</div>
+                    <div style="font-size: 0.92rem; font-weight: 800; color: #F59E0B;" id="resFats">--</div>
+                  </div>
+                  <div>
+                    <div style="font-size: 0.65rem; color: var(--text-secondary); font-weight: 700;">FIBER</div>
+                    <div style="font-size: 0.92rem; font-weight: 800; color: #8B5CF6;" id="resFiber">--</div>
+                  </div>
+                </div>
+
+                <!-- AI Advice / Recommendations -->
+                <div style="background: #FFFFFF; padding: 12px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+                  <div style="font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; margin-bottom: 4px;">Dietitian AI Insight</div>
+                  <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5;" id="resAdvice">--</div>
+                </div>
+
+                <div style="font-size: 0.7rem; color: #9CA3AF; font-style: italic;">
+                  * Nutrition values are AI-generated estimations based on visual volumetric assessment.
+                </div>
+
+                <button type="button" class="btn-start-today" id="btnLogAnalyzedMeal" style="width: 100%; justify-content: center; padding: 12px; background: #111111; margin-top: 4px;">
+                  + Add to Today's Food Diary
+                </button>
+              </div>
+            </div>
+
+            <!-- Right: Daily Water Hydration & Today's Meals Timeline -->
+            <div class="right-column-stack">
+              <!-- Water Tracker -->
+              <div class="dashboard-card" style="display: flex; flex-direction: column; gap: 14px;">
+                <div class="card-title-row">
+                  <h3 class="card-title">Daily Hydration</h3>
+                  <span class="badge-tag badge-green" id="waterStatusBadge">0% Target</span>
+                </div>
+
+                <div style="display: flex; align-items: center; justify-content: space-between;">
+                  <div>
+                    <div style="font-size: 2.2rem; font-weight: 800; color: var(--text-primary); line-height: 1;" id="waterAmountText">0 <span style="font-size: 1rem; color: var(--text-secondary); font-weight: 600;">/ 3,000 ml</span></div>
+                    <div style="font-size: 0.78rem; color: var(--text-secondary); margin-top: 4px;">Recommended for active strength recovery</div>
+                  </div>
+                  <div style="font-size: 2.5rem;">💧</div>
+                </div>
+
+                <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                  <button type="button" class="btn-ai-action" id="btnAddWater250" style="padding: 8px 12px; font-size: 0.8rem; font-weight: 700;">+250ml (Glass)</button>
+                  <button type="button" class="btn-ai-action" id="btnAddWater500" style="padding: 8px 12px; font-size: 0.8rem; font-weight: 700;">+500ml (Bottle)</button>
+                  <button type="button" class="btn-ai-action" id="btnResetWater" style="padding: 8px 10px; font-size: 0.8rem; color: var(--text-secondary);">↺ Reset</button>
+                </div>
+              </div>
+
+              <!-- Today's Logged Meals -->
+              <div class="dashboard-card" style="display: flex; flex-direction: column; gap: 14px;">
+                <div class="card-title-row">
+                  <h3 class="card-title">Today's Food Diary</h3>
+                  <span class="workout-badge" id="loggedMealsCountBadge">0 meals</span>
+                </div>
+                <div id="mealsTimelineContainer" style="display: flex; flex-direction: column; gap: 10px;">
+                  <!-- Hydrated dynamically -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="js/nutrition.js"></script>
+  </body>
+</html>

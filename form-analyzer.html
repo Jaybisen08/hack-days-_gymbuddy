@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GymBuddy — Exercise Analyser</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <!-- 1. LEFT SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <a href="dashboard.html" class="sidebar-brand" id="sidebarBrand">
+            <span class="brand-dot"></span>
+            <span>GYMBUDDY</span>
+          </a>
+          <nav aria-label="Dashboard Navigation">
+            <ul class="sidebar-nav">
+              <li class="nav-item">
+                <a href="dashboard.html" class="nav-link" id="sidebarNavDashboard">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </span>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="form-analyzer.html" class="nav-link active" id="sidebarNavAnalyzer">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  </span>
+                  <span>Exercise Analyser</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="ai-coach.html" class="nav-link" id="sidebarNavCoach">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                  </span>
+                  <span>AI Coach</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="workout.html" class="nav-link" id="sidebarNavWorkout">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1a2 2 0 0 0-2.8 0L16 21"></path><path d="m3 3 1 1a2 2 0 0 0 2.8 0L8 3"></path><path d="m14.5 9.5 2-2a2 2 0 0 1 2.8 0l1.7 1.7a2 2 0 0 1 0 2.8l-2 2"></path><path d="m9.5 14.5-2 2a2 2 0 0 1-2.8 0L3 14.8a2 2 0 0 1 0-2.8l2-2"></path></svg>
+                  </span>
+                  <span>Workout</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="nutrition.html" class="nav-link" id="sidebarNavNutrition">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                  </span>
+                  <span>Nutrition</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="progress.html" class="nav-link" id="sidebarNavProgress">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  </span>
+                  <span>Progress</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="challenges.html" class="nav-link" id="sidebarNavChallenges">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"></path></svg>
+                  </span>
+                  <span>Challenges</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <ul class="sidebar-bottom">
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link" id="sidebarNavSettings">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </span>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link nav-link-logout" id="sidebarLogoutBtn" style="background: none; border: none; width: 100%; cursor: pointer;">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+              </span>
+              <span>Logout</span>
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <!-- 2. MAIN APPLICATION -->
+      <div class="main-wrapper">
+        <header class="top-header" id="topHeader">
+          <div class="header-left">
+            <button type="button" class="mobile-toggle-btn" id="mobileSidebarToggle" aria-label="Open sidebar">☰</button>
+            <h1 class="header-title">AI Biomechanics Exercise Analyser</h1>
+          </div>
+          <div class="header-right">
+            <button type="button" class="notification-btn" id="notificationBtn" aria-label="Notifications">
+              <span aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+              </span>
+            </button>
+            <div class="profile-container">
+              <div class="profile-pill" id="profilePill" role="button">
+                <div class="profile-avatar" id="headerUserAvatar">A</div>
+                <span class="profile-name" id="headerUserName">Athlete</span>
+                <span class="dropdown-arrow">▼</span>
+              </div>
+              <div class="profile-dropdown" id="profileDropdown">
+                <div style="padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 4px;">
+                  <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);" id="dropdownUserFullName">Athlete</div>
+                  <div style="font-size: 0.74rem; color: var(--text-secondary);" id="dropdownUserEmail">athlete@gymbuddy.ai</div>
+                </div>
+                <a href="settings.html" class="dropdown-item">Profile Details</a>
+                <a href="settings.html" class="dropdown-item">Preferences</a>
+                <div class="dropdown-divider"></div>
+                <button type="button" class="dropdown-item danger" id="dropdownLogoutBtn">Logout</button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <main class="dashboard-content">
+          <!-- Exercise Configuration Bar -->
+          <div style="background-color: var(--bg-surface); padding: 18px 24px; border-radius: var(--radius-lg); border: 1px solid var(--border-subtle); display: flex; gap: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+            <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
+              <div>
+                <label for="exerciseSelect" style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">SELECT EXERCISE</label>
+                <select id="exerciseSelect" style="padding: 8px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; font-weight: 600; background: var(--bg-subtle);">
+                  <option value="Barbell Back Squat">Barbell Back Squat</option>
+                  <option value="Conventional Deadlift">Conventional Deadlift</option>
+                  <option value="Romanian Deadlift">Romanian Deadlift (RDL)</option>
+                  <option value="Flat Barbell Bench Press">Flat Barbell Bench Press</option>
+                  <option value="Overhead Military Press">Overhead Military Press</option>
+                  <option value="Barbell Bent-Over Row">Barbell Bent-Over Row</option>
+                  <option value="Bodyweight Push-Up">Bodyweight Push-Up</option>
+                  <option value="Walking Dumbbell Lunge">Walking Dumbbell Lunge</option>
+                  <option value="Core Plank Hold">Core Plank Hold</option>
+                </select>
+              </div>
+              <div>
+                <label for="cameraAngleSelect" style="font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); display: block; margin-bottom: 4px;">CAMERA ANGLE</label>
+                <select id="cameraAngleSelect" style="padding: 8px 14px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.92rem; font-weight: 600; background: var(--bg-subtle);">
+                  <option value="Side Profile (Recommended for depth & bar path)">Side Profile (Recommended)</option>
+                  <option value="Front 90° (Knee tracking & stance)">Front 90° (Knee alignment)</option>
+                  <option value="45° Oblique (Overall kinetic chain)">45° Oblique (Kinetic chain)</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; align-items: center;">
+              <span class="badge-tag badge-accent" id="activeStatusBadge">AI Model Ready</span>
+            </div>
+          </div>
+
+          <!-- Main 2-Column Analyzer Workspace -->
+          <div class="analyzer-grid">
+            <!-- Left: Video Viewport & Controls -->
+            <div class="dashboard-card" style="display: flex; flex-direction: column; gap: 16px;">
+              <div class="card-title-row">
+                <h3 class="card-title">Live Kinematic</h3>
+                <span class="workout-badge" id="cameraStatusIndicator">Awaiting Media</span>
+              </div>
+
+              <div class="video-container" id="videoContainer">
+                <video id="webcamVideo" class="video-element" autoplay playsinline muted style="display: none;"></video>
+                <canvas id="skeletonCanvas" class="canvas-overlay" style="display: none;"></canvas>
+                <img id="uploadedImageDisplay" class="video-element" alt="Uploaded exercise media" style="display: none; object-fit: contain; width: 100%; height: 100%;" />
+                <video id="uploadedVideoDisplay" class="video-element" controls playsinline muted style="display: none; object-fit: contain; width: 100%; height: 100%;"></video>
+                <div id="videoPlaceholderMessage" style="color: #A0A0A0; text-align: center; padding: 24px;">
+                  <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 8px; opacity: 0.7;"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  <div style="font-size: 0.95rem; font-weight: 700; color: #FFFFFF;">Live Kinematic</div>
+                  <div style="font-size: 0.82rem; color: #9CA3AF; margin-top: 4px;" id="kinematicPromptText">Upload an exercise photo or video to begin analysis.</div>
+                </div>
+              </div>
+
+              <!-- Controls Bar -->
+              <div class="camera-controls-bar">
+                <button type="button" class="btn-start-today" id="btnToggleCamera" style="padding: 10px 18px; font-size: 0.88rem;">
+                  <span>Start Camera</span>
+                </button>
+                <button type="button" class="btn-ai-action" id="btnFlipCamera" style="padding: 10px 14px;">
+                  Flip Camera
+                </button>
+                <label for="mediaFileInput" class="btn-ai-action" style="padding: 10px 14px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+                  <span>Upload Video / Photo</span>
+                  <input type="file" id="mediaFileInput" accept="image/*,video/*" style="display: none;" />
+                </label>
+              </div>
+
+              <!-- Primary Analyze Action -->
+              <button type="button" class="btn-start-today" id="btnAnalyzeForm" style="width: 100%; justify-content: center; background: #111111; padding: 14px; font-size: 1rem; border-radius: var(--radius-sm); margin-top: 6px;">
+                <span>Analyze Repetition Biomechanics (Gemini 3.7)</span>
+                <span>→</span>
+              </button>
+            </div>
+
+            <!-- Right: Real-time Biomechanics Report (Hidden until media analyzed) -->
+            <div class="dashboard-card" id="analysisPlaceholderCard" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 48px 24px; min-height: 420px; gap: 14px; background: var(--bg-subtle);">
+              <div style="width: 56px; height: 56px; border-radius: 50%; background: rgba(0,0,0,0.05); display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+                ⚖️
+              </div>
+              <div>
+                <h3 style="font-size: 1.05rem; font-weight: 700; color: var(--text-primary);">Awaiting Exercise Input</h3>
+                <p style="font-size: 0.82rem; color: var(--text-secondary); max-width: 320px; margin-top: 6px; line-height: 1.5;">
+                  Start your live camera or upload a workout video / photo, then click <strong>Analyze Repetition Biomechanics</strong> to generate your kinematic assessment.
+                </p>
+              </div>
+              <span class="badge-tag badge-accent">Gemini 3.7 Vision Engine Ready</span>
+            </div>
+
+            <!-- Analysis Result Card (Revealed on analysis completion) -->
+            <div class="dashboard-card" id="analysisResultCard" style="display: none; flex-direction: column; gap: 20px;">
+              <div class="card-title-row">
+                <h3 class="card-title">Kinematic Evaluation</h3>
+                <span class="badge-tag badge-green" id="postureGradeBadge">Grade A (94%)</span>
+              </div>
+
+              <!-- Big Score Metric Block -->
+              <div style="display: flex; align-items: center; justify-content: space-between; background: var(--bg-subtle); padding: 16px 20px; border-radius: var(--radius-md);">
+                <div>
+                  <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Form Accuracy Score</div>
+                  <div style="font-size: 2.4rem; font-weight: 800; color: var(--text-primary); line-height: 1.1;" id="scoreDisplay">--<span style="font-size: 1.1rem; color: var(--text-secondary);">/100</span></div>
+                  <div style="font-size: 0.8rem; color: #059669; font-weight: 600; margin-top: 2px;" id="postureStatusText">Evaluation Pending</div>
+                </div>
+                <div style="text-align: right;">
+                  <div style="font-size: 0.76rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase;">Injury Risk</div>
+                  <span class="badge-tag badge-green" id="injuryRiskBadge" style="margin-top: 4px;">Low Risk</span>
+                </div>
+              </div>
+
+              <!-- Joint Angles Matrix -->
+              <div>
+                <div style="font-size: 0.84rem; font-weight: 700; margin-bottom: 10px; color: var(--text-primary);">Joint Angle Estimates</div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;" id="jointAnglesGrid">
+                  <div style="background: #FAFAFA; border: 1px solid var(--border-subtle); padding: 10px 12px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 0.72rem; color: var(--text-secondary); font-weight: 600;">HIP HINGE DEPTH</div>
+                    <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);" id="valHipAngle">--</div>
+                  </div>
+                  <div style="background: #FAFAFA; border: 1px solid var(--border-subtle); padding: 10px 12px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 0.72rem; color: var(--text-secondary); font-weight: 600;">KNEE FLEXION</div>
+                    <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);" id="valKneeAngle">--</div>
+                  </div>
+                  <div style="background: #FAFAFA; border: 1px solid var(--border-subtle); padding: 10px 12px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 0.72rem; color: var(--text-secondary); font-weight: 600;">SPINE NEUTRALITY</div>
+                    <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);" id="valSpineAngle">--</div>
+                  </div>
+                  <div style="background: #FAFAFA; border: 1px solid var(--border-subtle); padding: 10px 12px; border-radius: var(--radius-sm);">
+                    <div style="font-size: 0.72rem; color: var(--text-secondary); font-weight: 600;">BAR PATH TRAJECTORY</div>
+                    <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-primary);" id="valBarPath">--</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Strengths & Corrections -->
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <div>
+                  <div style="font-size: 0.84rem; font-weight: 700; color: #059669; margin-bottom: 6px;">✓ Execution Highlights</div>
+                  <ul id="strengthsList" style="font-size: 0.85rem; color: var(--text-secondary); padding-left: 18px; display: flex; flex-direction: column; gap: 4px;">
+                  </ul>
+                </div>
+                <div>
+                  <div style="font-size: 0.84rem; font-weight: 700; color: #EA580C; margin-bottom: 6px;">⚠ Corrective Cues for Next Rep</div>
+                  <ul id="correctionsList" style="font-size: 0.85rem; color: var(--text-secondary); padding-left: 18px; display: flex; flex-direction: column; gap: 4px;">
+                  </ul>
+                </div>
+              </div>
+
+              <div style="border-top: 1px solid var(--border-subtle); padding-top: 14px; display: flex; gap: 10px;">
+                <button type="button" class="btn-ai-action" id="btnSaveScanHistory" style="flex: 1; text-align: center;">
+                  ✓ Saved to Athlete History
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Past Form Scans History Table -->
+          <div class="dashboard-card" style="margin-top: 24px;">
+            <div class="card-title-row">
+              <h3 class="card-title">Recent Form Analysis History</h3>
+              <span class="workout-badge" id="scanCountBadge">2 scans recorded</span>
+            </div>
+            <div id="scansHistoryContainer" style="margin-top: 14px; display: flex; flex-direction: column; gap: 10px;">
+              <!-- Hydrated dynamically -->
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="js/form-analyzer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "GymBuddy",
+  "description": "AI-powered fitness platform with intelligent biomechanics exercise analyser, conversational AI coach, routine planner, macro nutrition tracker, and dynamic dashboard.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

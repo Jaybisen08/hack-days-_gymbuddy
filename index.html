@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GymBuddy — Train Smarter. Move Better.</title>
+    <meta name="description" content="GymBuddy is an AI-powered fitness platform that analyzes exercise form, creates personalized workouts, tracks progress, and coaches your movement." />
+    <meta property="og:title" content="GymBuddy — Train Smarter. Move Better." />
+    <meta property="og:description" content="AI-powered fitness coaching that understands your movement, adapts to your progress, and helps you train better." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Pure CSS3 Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Pure Vanilla JavaScript -->
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+
+    <!-- 1. STICKY NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar-container">
+        <a href="#home" class="navbar-brand" id="nav-brand-link">
+          <span class="brand-dot"></span>
+          <span>GYMBUDDY</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav aria-label="Main Navigation">
+          <ul class="navbar-links">
+            <li><a href="#home" class="nav-link" id="nav-link-home">Home</a></li>
+            <li><a href="#how-it-works" class="nav-link" id="nav-link-how">How It Works</a></li>
+            <li><a href="#ai-form-analyzer" class="nav-link" id="nav-link-features">Features</a></li>
+            <li><a href="#ai-coach" class="nav-link" id="nav-link-coach">AI Coach</a></li>
+            <li><a href="#progress" class="nav-link" id="nav-link-progress">Progress</a></li>
+          </ul>
+        </nav>
+
+        <div class="navbar-actions">
+          <a href="login.html" class="btn-nav-login" id="nav-btn-login">Login</a>
+          <a href="signup.html" class="btn btn-primary btn-nav-cta" id="nav-btn-cta">Get Started</a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <button type="button" class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+          <li><a href="#home" class="mobile-nav-link" id="mob-link-home">Home</a></li>
+          <li><a href="#how-it-works" class="mobile-nav-link" id="mob-link-how">How It Works</a></li>
+          <li><a href="#ai-form-analyzer" class="mobile-nav-link" id="mob-link-features">Features</a></li>
+          <li><a href="#ai-coach" class="mobile-nav-link" id="mob-link-coach">AI Coach</a></li>
+          <li><a href="#progress" class="mobile-nav-link" id="mob-link-progress">Progress</a></li>
+        </ul>
+        <div class="mobile-nav-actions">
+          <a href="login.html" class="btn btn-secondary" id="mob-btn-login" style="width: 100%; text-align: center;">Login</a>
+          <a href="signup.html" class="btn btn-primary mobile-nav-link" id="mob-btn-cta" style="width: 100%; text-align: center;">Get Started</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="hero">
+      <video
+        class="hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        poster="assets/fitness-hero-poster.jpg"
+        id="hero-video-element">
+        <source
+          src="assets/fitness-hero.mp4"
+          type="video/mp4" />
+      </video>
+
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge reveal-item" id="hero-badge-container">
+          <span class="hero-badge-indicator"></span>
+          <span>AI-POWERED FITNESS</span>
+        </div>
+
+        <h1 class="hero-title reveal-item delay-1" id="hero-main-heading">
+          Train Smarter.<br />
+          Move Better.
+        </h1>
+
+        <p class="hero-text reveal-item delay-2" id="hero-supporting-text">
+          Your AI-powered fitness coach that understands your movement, adapts to your progress, and helps you train better.
+        </p>
+
+        <div class="hero-cta-group reveal-item delay-3" id="hero-action-buttons">
+          <a href="#ai-form-analyzer" class="btn btn-hero-primary" id="hero-btn-analyze">Analyze My Form</a>
+          <a href="#how-it-works" class="btn btn-hero-secondary" id="hero-btn-explore">Explore Features</a>
+        </div>
+
+        <div class="hero-subline reveal-item delay-4" id="hero-subline-text">
+          Smarter training. Better feedback. Real progress.
+        </div>
+      </div>
+
+      <a href="#the-problem" class="hero-scroll-indicator" id="hero-scroll-anchor" aria-label="Scroll to explore">
+        <span>SCROLL TO EXPLORE</span>
+        <span class="hero-scroll-arrow">↓</span>
+      </a>
+    </section>
+
+    <!-- 3. SECTION — THE PROBLEM -->
+    <section class="section" id="the-problem">
+      <div class="container">
+        <div class="section-header reveal-item" id="problem-header">
+          <span class="section-tag">THE PROBLEM</span>
+          <h2 class="section-title">
+            Most people train.<br />
+            Few people train correctly.
+          </h2>
+          <p class="section-desc">
+            Without proper feedback, small mistakes become habits, progress slows down, and workouts become guesswork.
+          </p>
+        </div>
+
+        <div class="problem-grid">
+          <div class="problem-card reveal-item delay-1" id="problem-card-1">
+            <span class="problem-num">01</span>
+            <h3 class="problem-title">BAD FORM</h3>
+            <p class="problem-text">
+              Small movement mistakes repeated over time can become difficult habits to break.
+            </p>
+          </div>
+
+          <div class="problem-card reveal-item delay-2" id="problem-card-2">
+            <span class="problem-num">02</span>
+            <h3 class="problem-title">NO FEEDBACK</h3>
+            <p class="problem-text">
+              Most fitness apps tell you what to do, but not how you're actually doing it.
+            </p>
+          </div>
+
+          <div class="problem-card reveal-item delay-3" id="problem-card-3">
+            <span class="problem-num">03</span>
+            <h3 class="problem-title">NO ADAPTATION</h3>
+            <p class="problem-text">
+              Your training should evolve as your fitness level and goals change.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. SECTION — HOW IT WORKS -->
+    <section class="section section-white" id="how-it-works">
+      <div class="container">
+        <div class="section-header reveal-item" id="how-header">
+          <h2 class="section-title">How GymBuddy works.</h2>
+          <p class="section-desc">Three simple steps to smarter training.</p>
+        </div>
+
+        <div class="how-steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card reveal-item delay-1" id="step-card-1">
+            <div class="step-top">
+              <span class="step-badge">STEP 01</span>
+              <div class="step-icon-wrapper" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                  <circle cx="12" cy="13" r="4"></circle>
+                </svg>
+              </div>
+            </div>
+            <h3 class="step-title">RECORD</h3>
+            <p class="step-desc">
+              Capture your exercise using your phone camera.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card reveal-item delay-2" id="step-card-2">
+            <div class="step-top">
+              <span class="step-badge">STEP 02</span>
+              <div class="step-icon-wrapper" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 12h5l3 7 4-14 3 7h5"></path>
+                </svg>
+              </div>
+            </div>
+            <h3 class="step-title">ANALYZE</h3>
+            <p class="step-desc">
+              AI analyzes your movement and identifies areas where you can improve.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card reveal-item delay-3" id="step-card-3">
+            <div class="step-top">
+              <span class="step-badge">STEP 03</span>
+              <div class="step-icon-wrapper" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                  <polyline points="16 7 22 7 22 13"></polyline>
+                </svg>
+              </div>
+            </div>
+            <h3 class="step-title">IMPROVE</h3>
+            <p class="step-desc">
+              Get clear feedback and track your progress over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SECTION — AI FORM ANALYZER (DARK BACKGROUND) -->
+    <section class="section section-dark" id="ai-form-analyzer">
+      <div class="container">
+        <div class="section-header reveal-item" id="analyzer-header">
+          <span class="section-tag dark">FEATURE SPOTLIGHT</span>
+          <h2 class="section-title white">
+            Your form.<br />
+            Under the microscope.
+          </h2>
+          <p class="section-desc light">
+            GymBuddy analyzes your exercise and gives you clear, actionable feedback on your movement.
+          </p>
+        </div>
+
+        <div class="analyzer-layout">
+          <!-- Left side: Exercise Preview Mockup -->
+          <div class="analyzer-preview-card reveal-item delay-1" id="analyzer-preview-container">
+            <div class="preview-screen" id="preview-screen-box">
+              <span class="live-badge">
+                <span class="live-dot"></span>
+                LIVE POSE TRACKING
+              </span>
+
+              <!-- Minimalist Pose Keypoints Graphic -->
+              <svg class="skeleton-overlay" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Head -->
+                <circle cx="200" cy="110" r="22" stroke="#FFFFFF" stroke-width="2.5" />
+                
+                <!-- Torso & Spine -->
+                <line x1="200" y1="132" x2="200" y2="240" stroke="#FFFFFF" stroke-width="3" />
+                
+                <!-- Shoulders -->
+                <line x1="150" y1="160" x2="250" y2="160" stroke="#FFFFFF" stroke-width="3" />
+                
+                <!-- Arms -->
+                <line x1="150" y1="160" x2="130" y2="220" stroke="#FFFFFF" stroke-width="2.5" />
+                <line x1="130" y1="220" x2="160" y2="250" stroke="#FFFFFF" stroke-width="2.5" />
+                <line x1="250" y1="160" x2="270" y2="220" stroke="#FFFFFF" stroke-width="2.5" />
+                <line x1="270" y1="220" x2="240" y2="250" stroke="#FFFFFF" stroke-width="2.5" />
+                
+                <!-- Hips -->
+                <line x1="165" y1="240" x2="235" y2="240" stroke="#FFFFFF" stroke-width="3" />
+                
+                <!-- Legs (Squat Stance) -->
+                <!-- Left Leg -->
+                <line x1="165" y1="240" x2="135" y2="330" stroke="#C8FF3D" stroke-width="3.5" />
+                <line x1="135" y1="330" x2="155" y2="430" stroke="#C8FF3D" stroke-width="3.5" />
+                
+                <!-- Right Leg -->
+                <line x1="235" y1="240" x2="265" y2="330" stroke="#C8FF3D" stroke-width="3.5" />
+                <line x1="265" y1="330" x2="245" y2="430" stroke="#C8FF3D" stroke-width="3.5" />
+                
+                <!-- Keypoint Joints -->
+                <circle cx="200" cy="110" r="5" fill="#FFFFFF" />
+                <circle cx="150" cy="160" r="5" fill="#FFFFFF" />
+                <circle cx="250" cy="160" r="5" fill="#FFFFFF" />
+                <circle cx="130" cy="220" r="5" fill="#FFFFFF" />
+                <circle cx="270" cy="220" r="5" fill="#FFFFFF" />
+                <circle cx="165" cy="240" r="6" fill="#C8FF3D" />
+                <circle cx="235" cy="240" r="6" fill="#C8FF3D" />
+                <circle cx="135" cy="330" r="7" fill="#C8FF3D" />
+                <circle cx="265" cy="330" r="7" fill="#C8FF3D" />
+                <circle cx="155" cy="430" r="6" fill="#FFFFFF" />
+                <circle cx="245" cy="430" r="6" fill="#FFFFFF" />
+
+                <!-- Knee Angle Indicator -->
+                <circle cx="135" cy="330" r="24" stroke="#C8FF3D" stroke-width="1.5" stroke-dasharray="4 3" />
+              </svg>
+
+              <div class="angle-badge">
+                <span>KNEE ANGLE: 88°</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right side: Analysis Dashboard & Metrics -->
+          <div class="analyzer-dashboard reveal-item delay-2" id="analyzer-dashboard-panel">
+            <div class="dashboard-header">
+              <div>
+                <span class="exercise-label">EXERCISE</span>
+                <h3 class="exercise-name">SQUAT ANALYSIS</h3>
+              </div>
+              <div class="score-box">
+                <div class="score-title">FORM SCORE</div>
+                <div class="score-value">86<span class="score-total"> / 100</span></div>
+              </div>
+            </div>
+
+            <!-- Metrics with Progress Bars -->
+            <div class="metrics-list" id="metrics-list-container">
+              <!-- Posture -->
+              <div class="metric-item">
+                <div class="metric-header">
+                  <span>Posture</span>
+                  <span class="metric-pct">91%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-target-width="91%"></div>
+                </div>
+              </div>
+
+              <!-- Knee Alignment -->
+              <div class="metric-item">
+                <div class="metric-header">
+                  <span>Knee Alignment</span>
+                  <span class="metric-pct">88%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-target-width="88%"></div>
+                </div>
+              </div>
+
+              <!-- Depth -->
+              <div class="metric-item">
+                <div class="metric-header">
+                  <span>Depth</span>
+                  <span class="metric-pct">79%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-target-width="79%"></div>
+                </div>
+              </div>
+
+              <!-- Stability -->
+              <div class="metric-item">
+                <div class="metric-header">
+                  <span>Stability</span>
+                  <span class="metric-pct">85%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" data-target-width="85%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- AI Feedback Card -->
+            <div class="feedback-card" id="analyzer-feedback-card">
+              <div class="feedback-tag">AI FEEDBACK</div>
+              <div class="feedback-title">Your overall form is strong.</div>
+              <p class="feedback-body">
+                Focus on maintaining consistent depth and keeping your chest stable near the bottom of the movement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SECTION — AI PERSONAL TRAINER -->
+    <section class="section" id="ai-personal-trainer">
+      <div class="container">
+        <div class="trainer-grid">
+          <div class="reveal-item" id="trainer-header-info">
+            <span class="section-tag">AI PERSONAL TRAINER</span>
+            <h2 class="section-title">
+              A workout<br />
+              that adapts to you.
+            </h2>
+            <p class="section-desc">
+              Your goals, schedule, equipment, and progress come together in one personalized plan.
+            </p>
+          </div>
+
+          <div class="workout-card reveal-item delay-1" id="workout-plan-card">
+            <div class="workout-card-header">
+              <div>
+                <span class="workout-subtitle">TODAY'S WORKOUT</span>
+                <h3 class="workout-title">UPPER BODY</h3>
+              </div>
+              <span class="ai-pill">
+                <span class="brand-dot" style="width: 5px; height: 5px;"></span>
+                AI GENERATED
+              </span>
+            </div>
+
+            <div class="exercise-list">
+              <div class="exercise-row">
+                <div class="exercise-info">
+                  <div class="exercise-check">✓</div>
+                  <span class="exercise-name-text">Push Ups</span>
+                </div>
+                <span class="exercise-reps">3 × 12</span>
+              </div>
+
+              <div class="exercise-row">
+                <div class="exercise-info">
+                  <div class="exercise-check">✓</div>
+                  <span class="exercise-name-text">Shoulder Press</span>
+                </div>
+                <span class="exercise-reps">3 × 10</span>
+              </div>
+
+              <div class="exercise-row">
+                <div class="exercise-info">
+                  <div class="exercise-check">✓</div>
+                  <span class="exercise-name-text">Bicep Curl</span>
+                </div>
+                <span class="exercise-reps">3 × 12</span>
+              </div>
+
+              <div class="exercise-row">
+                <div class="exercise-info">
+                  <div class="exercise-check">✓</div>
+                  <span class="exercise-name-text">Plank</span>
+                </div>
+                <span class="exercise-reps">3 × 30 sec</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. SECTION — AI NUTRITION -->
+    <section class="section section-white" id="ai-nutrition">
+      <div class="container">
+        <div class="nutrition-grid">
+          <div class="reveal-item" id="nutrition-header-info">
+            <span class="section-tag">AI NUTRITION</span>
+            <h2 class="section-title">
+              Know what's<br />
+              on your plate.
+            </h2>
+            <p class="section-desc">
+              Snap a photo of your meal and get an AI-powered nutritional estimate.
+            </p>
+          </div>
+
+          <div class="meal-card reveal-item delay-1" id="meal-breakdown-card">
+            <div class="meal-header">
+              <div>
+                <span class="meal-label">YOUR MEAL</span>
+                <h3 class="meal-food-items">Rice • Dal • Vegetables • Roti</h3>
+              </div>
+              <div class="meal-calories">
+                <div class="calorie-number">620</div>
+                <div class="calorie-label">kcal</div>
+              </div>
+            </div>
+
+            <div class="macro-grid">
+              <div class="macro-card">
+                <div class="macro-name">Protein</div>
+                <div class="macro-value">22g</div>
+              </div>
+              <div class="macro-card">
+                <div class="macro-name">Carbs</div>
+                <div class="macro-value">94g</div>
+              </div>
+              <div class="macro-card">
+                <div class="macro-name">Fat</div>
+                <div class="macro-value">16g</div>
+              </div>
+            </div>
+
+            <div class="nutrition-tip-card">
+              <div class="tip-label">AI TIP</div>
+              <p class="tip-text">
+                Add a protein-rich side to create a more balanced meal.
+              </p>
+            </div>
+
+            <p class="disclaimer-text">
+              * Nutrition values are estimated AI approximations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. SECTION — PROGRESS -->
+    <section class="section" id="progress">
+      <div class="container">
+        <div class="section-header reveal-item" id="progress-header">
+          <span class="section-tag">ANALYTICS & GROWTH</span>
+          <h2 class="section-title">
+            Progress<br />
+            you can see.
+          </h2>
+          <p class="section-desc">
+            Track your workouts, form scores, streaks, and improvement.
+          </p>
+        </div>
+
+        <!-- 3 Statistics -->
+        <div class="stats-grid">
+          <div class="stat-card reveal-item delay-1" id="stat-streak">
+            <div class="stat-number">12</div>
+            <div class="stat-label">DAY STREAK</div>
+          </div>
+          <div class="stat-card reveal-item delay-2" id="stat-workouts">
+            <div class="stat-number">42</div>
+            <div class="stat-label">WORKOUTS</div>
+          </div>
+          <div class="stat-card reveal-item delay-3" id="stat-score">
+            <div class="stat-number">86</div>
+            <div class="stat-label">AVG FORM SCORE</div>
+          </div>
+        </div>
+
+        <!-- Chart Card -->
+        <div class="chart-card reveal-item delay-2" id="progress-chart-card">
+          <div class="chart-header">
+            <span class="chart-title">FORM SCORE — LAST 4 WEEKS</span>
+            <span class="chart-progression">64 → 71 → 78 → 86</span>
+          </div>
+
+          <div class="svg-chart-container">
+            <svg class="chart-svg" viewBox="0 0 600 150" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGradient" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#111111" stop-opacity="0.12" />
+                  <stop offset="100%" stop-color="#111111" stop-opacity="0.0" />
+                </linearGradient>
+              </defs>
+              <!-- Filled Area -->
+              <path class="chart-area" d="M 40,115 L 200,85 L 380,55 L 560,20 L 560,140 L 40,140 Z" fill="url(#chartGradient)" />
+              <!-- Trend Line -->
+              <path class="chart-line" d="M 40,115 L 200,85 L 380,55 L 560,20" />
+              <!-- Data Points -->
+              <circle class="chart-dot" cx="40" cy="115" r="5" />
+              <circle class="chart-dot" cx="200" cy="85" r="5" />
+              <circle class="chart-dot" cx="380" cy="55" r="5" />
+              <circle class="chart-dot" cx="560" cy="20" r="5" />
+            </svg>
+          </div>
+
+          <div class="chart-axis-labels">
+            <span>WEEK 1 (64)</span>
+            <span>WEEK 2 (71)</span>
+            <span>WEEK 3 (78)</span>
+            <span>WEEK 4 (86)</span>
+          </div>
+        </div>
+
+        <!-- AI Insight -->
+        <div class="insight-card reveal-item delay-3" id="progress-insight-card">
+          <div class="insight-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="insight-label">AI INSIGHT</div>
+            <div class="insight-text">
+              Your squat form improved by 23% over the last four weeks.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. SECTION — AI COACH (CHAT INTERFACE) -->
+    <section class="section section-gray" id="ai-coach">
+      <div class="container coach-container">
+        <div class="section-header reveal-item" style="text-align: center;" id="coach-header">
+          <span class="section-tag">ALWAYS ON COACH</span>
+          <h2 class="section-title">
+            Your coach<br />
+            is always ready.
+          </h2>
+        </div>
+
+        <div class="chat-card reveal-item delay-1" id="chat-interface-card">
+          <div class="chat-header">
+            <div class="coach-avatar">GB</div>
+            <div class="coach-info">
+              <span class="coach-name">GymBuddy Assistant</span>
+              <span class="coach-status">
+                <span class="status-dot"></span>
+                Active Guidance
+              </span>
+            </div>
+          </div>
+
+          <div class="chat-messages">
+            <!-- Exchange 1 -->
+            <div class="chat-bubble chat-user">
+              I only have 20 minutes today.
+            </div>
+            <div class="chat-bubble chat-ai">
+              <p><strong>Let's make it count.</strong></p>
+              <p>I'll adjust today's workout to a focused 20-minute session.</p>
+            </div>
+
+            <!-- Exchange 2 -->
+            <div class="chat-bubble chat-user">
+              My squat score dropped this week.
+            </div>
+            <div class="chat-bubble chat-ai">
+              <p><strong>Your depth consistency changed.</strong></p>
+              <p>Let's focus on controlled reps during your next session.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. SECTION — AI SECTION (INTELLIGENCE / CAPABILITIES) -->
+    <section class="section section-white" id="ai-intelligence">
+      <div class="container">
+        <div class="section-header reveal-item" id="intelligence-header">
+          <span class="section-tag">MULTIMODAL INTELLIGENCE</span>
+          <h2 class="section-title">More than a chatbot.</h2>
+          <p class="section-desc">
+            GymBuddy understands your workouts, your progress, and your goals.
+          </p>
+        </div>
+
+        <div class="intelligence-grid">
+          <!-- Video -->
+          <div class="intel-card reveal-item delay-1" id="intel-card-video">
+            <div class="intel-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                <line x1="7" y1="2" x2="7" y2="22"></line>
+                <line x1="17" y1="2" x2="17" y2="22"></line>
+                <line x1="2" y1="12" x2="22" y2="12"></line>
+                <line x1="2" y1="7" x2="7" y2="7"></line>
+                <line x1="2" y1="17" x2="7" y2="17"></line>
+                <line x1="17" y1="17" x2="22" y2="17"></line>
+                <line x1="17" y1="7" x2="22" y2="7"></line>
+              </svg>
+            </div>
+            <span class="intel-type">VIDEO</span>
+            <h3 class="intel-name">Movement analysis</h3>
+          </div>
+
+          <!-- Image -->
+          <div class="intel-card reveal-item delay-2" id="intel-card-image">
+            <div class="intel-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </div>
+            <span class="intel-type">IMAGE</span>
+            <h3 class="intel-name">Meal understanding</h3>
+          </div>
+
+          <!-- Text -->
+          <div class="intel-card reveal-item delay-3" id="intel-card-text">
+            <div class="intel-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <span class="intel-type">TEXT</span>
+            <h3 class="intel-name">Personalized coaching</h3>
+          </div>
+
+          <!-- Voice -->
+          <div class="intel-card reveal-item delay-4" id="intel-card-voice">
+            <div class="intel-icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                <line x1="12" y1="19" x2="12" y2="23"></line>
+                <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </div>
+            <span class="intel-type">VOICE</span>
+            <h3 class="intel-name">Conversational assistance</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FINAL CTA SECTION (DARK BACKGROUND) -->
+    <section class="section" id="final-cta">
+      <div class="container">
+        <div class="cta-wrapper reveal-item" id="final-cta-card">
+          <div class="cta-content">
+            <h2 class="cta-title">
+              Your next workout<br />
+              starts here.
+            </h2>
+            <p class="cta-desc">
+              Train with better feedback. Build better habits. Move better.
+            </p>
+            <div class="cta-buttons">
+              <a href="signup.html" class="btn btn-accent" id="cta-btn-get-started">Get Started</a>
+              <a href="#how-it-works" class="btn btn-dark-secondary" id="cta-btn-features">Explore Features</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 12. FOOTER -->
+    <footer class="footer" id="footer">
+      <div class="container">
+        <div class="footer-top">
+          <!-- Brand Column -->
+          <div class="footer-brand-col">
+            <div class="footer-brand">GYMBUDDY</div>
+            <p class="footer-tagline">Train Smarter. Move Better.</p>
+          </div>
+
+          <!-- Product Links -->
+          <div>
+            <h4 class="footer-col-title">Product</h4>
+            <ul class="footer-links">
+              <li><a href="#ai-form-analyzer" class="footer-link">Features</a></li>
+              <li><a href="#how-it-works" class="footer-link">How It Works</a></li>
+              <li><a href="#ai-coach" class="footer-link">AI Coach</a></li>
+              <li><a href="#progress" class="footer-link">Progress</a></li>
+            </ul>
+          </div>
+
+          <!-- Company Links -->
+          <div>
+            <h4 class="footer-col-title">Company</h4>
+            <ul class="footer-links">
+              <li><a href="#home" class="footer-link">About</a></li>
+              <li><a href="#home" class="footer-link">Contact</a></li>
+              <li><a href="#home" class="footer-link">Privacy</a></li>
+              <li><a href="#home" class="footer-link">Terms</a></li>
+            </ul>
+          </div>
+
+          <!-- Social Links -->
+          <div>
+            <h4 class="footer-col-title">Social</h4>
+            <ul class="footer-links">
+              <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="footer-link">LinkedIn</a></li>
+              <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="footer-link">Instagram</a></li>
+              <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>© 2026 GymBuddy. All rights reserved.</p>
+          <p>Designed for intelligent movement & smarter fitness.</p>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

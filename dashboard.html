@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GymBuddy — Dashboard</title>
+    <link rel="stylesheet" href="css/dashboard.css" />
+  </head>
+  <body>
+    <div class="dashboard-layout">
+      <!-- 1. LEFT SIDEBAR -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <!-- Logo -->
+          <a href="dashboard.html" class="sidebar-brand" id="sidebarBrand">
+            <span class="brand-dot"></span>
+            <span>GYMBUDDY</span>
+          </a>
+
+          <!-- Main Nav -->
+          <nav aria-label="Dashboard Navigation">
+            <ul class="sidebar-nav">
+              <li class="nav-item">
+                <a href="dashboard.html" class="nav-link active" id="sidebarNavDashboard">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                  </span>
+                  <span>Dashboard</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="form-analyzer.html" class="nav-link" id="sidebarNavAnalyzer">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  </span>
+                  <span>Exercise Analyser</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="ai-coach.html" class="nav-link" id="sidebarNavCoach">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                  </span>
+                  <span>AI Coach</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="workout.html" class="nav-link" id="sidebarNavWorkout">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1a2 2 0 0 0-2.8 0L16 21"></path><path d="m3 3 1 1a2 2 0 0 0 2.8 0L8 3"></path><path d="m14.5 9.5 2-2a2 2 0 0 1 2.8 0l1.7 1.7a2 2 0 0 1 0 2.8l-2 2"></path><path d="m9.5 14.5-2 2a2 2 0 0 1-2.8 0L3 14.8a2 2 0 0 1 0-2.8l2-2"></path></svg>
+                  </span>
+                  <span>Workout</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="nutrition.html" class="nav-link" id="sidebarNavNutrition">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                  </span>
+                  <span>Nutrition</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="progress.html" class="nav-link" id="sidebarNavProgress">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                  </span>
+                  <span>Progress</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="challenges.html" class="nav-link" id="sidebarNavChallenges">
+                  <span class="nav-icon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H8c-.55 0-1 .45-1 1v1c0 .55.45 1 1 1h8c.55 0 1-.45 1-1v-1c0-.55-.45-1-1-1h-1c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 4H6v7a6 6 0 0 0 12 0V4Z"></path></svg>
+                  </span>
+                  <span>Challenges</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Bottom Actions -->
+        <ul class="sidebar-bottom">
+          <li class="nav-item">
+            <a href="settings.html" class="nav-link" id="sidebarNavSettings">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+              </span>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="nav-link nav-link-logout" id="sidebarLogoutBtn" style="background: none; border: none; width: 100%; cursor: pointer;">
+              <span class="nav-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+              </span>
+              <span>Logout</span>
+            </button>
+          </li>
+        </ul>
+      </aside>
+
+      <!-- Mobile Backdrop Overlay -->
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <!-- 2. MAIN APPLICATION CONTENT -->
+      <div class="main-wrapper">
+        <!-- Top Header -->
+        <header class="top-header" id="topHeader">
+          <div class="header-left">
+            <button type="button" class="mobile-toggle-btn" id="mobileSidebarToggle" aria-label="Open sidebar menu">
+              ☰
+            </button>
+            <h1 class="header-title" id="pageHeaderTitle">Dashboard</h1>
+          </div>
+
+          <div class="header-right">
+            <!-- Notification Bell -->
+            <button type="button" class="notification-btn" id="notificationBtn" aria-label="Notifications">
+              <span aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path></svg>
+              </span>
+              <span class="notification-badge" aria-label="1 unread notification"></span>
+            </button>
+
+            <!-- User Profile Container -->
+            <div class="profile-container">
+              <div class="profile-pill" id="profilePill" role="button" aria-haspopup="true" aria-expanded="false" tabindex="0">
+                <div class="profile-avatar" id="headerUserAvatar">A</div>
+                <span class="profile-name" id="headerUserName">Athlete</span>
+                <span class="dropdown-arrow">▼</span>
+              </div>
+
+              <!-- Profile Dropdown -->
+              <div class="profile-dropdown" id="profileDropdown" role="menu">
+                <div style="padding: 8px 12px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 4px;">
+                  <div style="font-size: 0.85rem; font-weight: 700; color: var(--text-primary);" id="dropdownUserFullName">Athlete</div>
+                  <div style="font-size: 0.74rem; color: var(--text-secondary); word-break: break-all;" id="dropdownUserEmail">user@example.com</div>
+                </div>
+                <a href="settings.html" class="dropdown-item" role="menuitem">
+                  <span class="nav-icon" aria-hidden="true" style="width: 16px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  </span>
+                  <span>Profile Details</span>
+                </a>
+                <a href="settings.html" class="dropdown-item" role="menuitem">
+                  <span class="nav-icon" aria-hidden="true" style="width: 16px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                  </span>
+                  <span>Preferences</span>
+                </a>
+                <div class="dropdown-divider"></div>
+                <button type="button" class="dropdown-item danger" id="dropdownLogoutBtn" role="menuitem">
+                  <span class="nav-icon" aria-hidden="true" style="width: 16px;">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                  </span>
+                  <span>Logout</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <!-- Main Body Content -->
+        <main class="dashboard-content" id="mainDashboardContent">
+          <!-- 1. Welcome Hero -->
+          <section class="welcome-hero" id="welcomeSection">
+            <div class="welcome-text-group">
+              <h2 class="welcome-title">Good morning, <span id="welcomeUserName">Athlete</span>.</h2>
+              <p class="welcome-subtitle">Ready for today's workout? Stay consistent. Small improvements add up.</p>
+            </div>
+            <a href="#todayWorkoutCard" class="btn-start-today" id="heroStartWorkoutBtn">
+              <span>Start Today's Workout</span>
+              <span>→</span>
+            </a>
+          </section>
+
+          <!-- 2. Four Fitness Summary Metrics (Zero Emojis, Clean SVG) -->
+          <section class="metrics-grid" id="metricsSummaryGrid" aria-label="Fitness Summary">
+            <!-- Metric 1: Streak -->
+            <div class="metric-card" id="metricCardStreak">
+              <div class="metric-header">
+                <span class="metric-icon" aria-hidden="true" style="color: #F97316;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg>
+                </span>
+                <span class="metric-tag">Streak</span>
+              </div>
+              <div class="metric-value">12</div>
+              <div class="metric-footer">Day Streak • Keep it going!</div>
+            </div>
+
+            <!-- Metric 2: Workouts -->
+            <div class="metric-card" id="metricCardWorkouts">
+              <div class="metric-header">
+                <span class="metric-icon" aria-hidden="true" style="color: #3B82F6;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 6.5 11 11"></path><path d="m21 21-1-1a2 2 0 0 0-2.8 0L16 21"></path><path d="m3 3 1 1a2 2 0 0 0 2.8 0L8 3"></path><path d="m14.5 9.5 2-2a2 2 0 0 1 2.8 0l1.7 1.7a2 2 0 0 1 0 2.8l-2 2"></path><path d="m9.5 14.5-2 2a2 2 0 0 1-2.8 0L3 14.8a2 2 0 0 1 0-2.8l2-2"></path></svg>
+                </span>
+                <span class="metric-tag">Workouts</span>
+              </div>
+              <div class="metric-value">42</div>
+              <div class="metric-footer">Total completed</div>
+            </div>
+
+            <!-- Metric 3: Form Score -->
+            <div class="metric-card" id="metricCardScore">
+              <div class="metric-header">
+                <span class="metric-icon" aria-hidden="true" style="color: #10B981;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+                </span>
+                <span class="metric-tag">Form Score</span>
+              </div>
+              <div class="metric-value">86%</div>
+              <div class="metric-footer">Average accuracy</div>
+            </div>
+
+            <!-- Metric 4: Total Time -->
+            <div class="metric-card" id="metricCardTime">
+              <div class="metric-header">
+                <span class="metric-icon" aria-hidden="true" style="color: #8B5CF6;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                </span>
+                <span class="metric-tag">Total Time</span>
+              </div>
+              <div class="metric-value">18h 34m</div>
+              <div class="metric-footer">Workout duration</div>
+            </div>
+          </section>
+
+          <!-- 3. Two-Column Core: Today's Workout & Weekly Progress / AI Insight -->
+          <div class="dashboard-grid-2col">
+            <!-- Left: Today's Workout Interactive Card -->
+            <section class="dashboard-card" id="todayWorkoutCard">
+              <div>
+                <div class="card-title-row">
+                  <h3 class="card-title">Today's Workout</h3>
+                  <span class="workout-badge">Upper Body • 45 Min</span>
+                </div>
+
+                <!-- Progress Header -->
+                <div class="workout-progress-container" style="margin: 18px 0 20px;">
+                  <div class="workout-progress-header">
+                    <span>Routine Completion</span>
+                    <span id="workoutCompletionText">1 / 4 completed</span>
+                  </div>
+                  <div class="workout-progress-track">
+                    <div class="workout-progress-fill" id="workoutProgressBar" style="width: 25%;"></div>
+                  </div>
+                </div>
+
+                <!-- Exercise Checklist -->
+                <div class="exercise-list" id="exerciseChecklist">
+                  <!-- Exercise 1 -->
+                  <div class="exercise-item completed" data-exercise-id="1">
+                    <div class="exercise-left">
+                      <input type="checkbox" class="exercise-checkbox" id="ex1" checked />
+                      <label for="ex1" class="exercise-name">Push Ups</label>
+                    </div>
+                    <span class="exercise-reps">3 × 12</span>
+                  </div>
+
+                  <!-- Exercise 2 -->
+                  <div class="exercise-item" data-exercise-id="2">
+                    <div class="exercise-left">
+                      <input type="checkbox" class="exercise-checkbox" id="ex2" />
+                      <label for="ex2" class="exercise-name">Shoulder Press</label>
+                    </div>
+                    <span class="exercise-reps">3 × 10</span>
+                  </div>
+
+                  <!-- Exercise 3 -->
+                  <div class="exercise-item" data-exercise-id="3">
+                    <div class="exercise-left">
+                      <input type="checkbox" class="exercise-checkbox" id="ex3" />
+                      <label for="ex3" class="exercise-name">Bicep Curl</label>
+                    </div>
+                    <span class="exercise-reps">3 × 12</span>
+                  </div>
+
+                  <!-- Exercise 4 -->
+                  <div class="exercise-item" data-exercise-id="4">
+                    <div class="exercise-left">
+                      <input type="checkbox" class="exercise-checkbox" id="ex4" />
+                      <label for="ex4" class="exercise-name">Plank</label>
+                    </div>
+                    <span class="exercise-reps">3 × 30 sec</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action button -->
+              <button type="button" class="btn-workout-action" id="startWorkoutSessionBtn">
+                Start Workout
+              </button>
+            </section>
+
+            <!-- Right: Weekly Progress & AI Insight Stack -->
+            <div class="right-column-stack">
+              <!-- Weekly Progress Card -->
+              <section class="dashboard-card" id="weeklyProgressCard">
+                <div class="card-title-row">
+                  <h3 class="card-title">Weekly Progress</h3>
+                  <span style="font-size: 0.8rem; color: var(--text-secondary); font-weight: 600;">4 / 5 Target</span>
+                </div>
+
+                <div class="chart-container">
+                  <div class="bars-wrapper" aria-label="Weekly Activity Chart">
+                    <div class="bar-column">
+                      <div class="bar-track">
+                        <div class="bar-fill" style="height: 75%;" title="Monday: 45 min"></div>
+                      </div>
+                      <span class="bar-label">Mon</span>
+                    </div>
+
+                    <div class="bar-column">
+                      <div class="bar-track">
+                        <div class="bar-fill" style="height: 100%;" title="Tuesday: 60 min"></div>
+                      </div>
+                      <span class="bar-label">Tue</span>
+                    </div>
+
+                    <div class="bar-column">
+                      <div class="bar-track">
+                        <div class="bar-fill" style="height: 85%;" title="Wednesday: 50 min"></div>
+                      </div>
+                      <span class="bar-label">Wed</span>
+                    </div>
+
+                    <div class="bar-column">
+                      <div class="bar-track">
+                        <div class="bar-fill rest" style="height: 0%;" title="Thursday: Rest day"></div>
+                      </div>
+                      <span class="bar-label">Thu</span>
+                    </div>
+
+                    <div class="bar-column">
+                      <div class="bar-track">
+                        <div class="bar-fill accent" style="height: 90%;" title="Friday: Active today (55 min)"></div>
+                      </div>
+                      <span class="bar-label" style="font-weight: 800; color: var(--text-primary);">Fri</span>
+                    </div>
+
+                    <div class="bar-column">
+                      <div class="bar-track">
+                        <div class="bar-fill" style="height: 60%;" title="Saturday: 35 min"></div>
+                      </div>
+                      <span class="bar-label">Sat</span>
+                    </div>
+
+                    <div class="bar-column">
+                      <div class="bar-track">
+                        <div class="bar-fill rest" style="height: 0%;" title="Sunday: Rest day"></div>
+                      </div>
+                      <span class="bar-label">Sun</span>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <!-- AI Insight Card -->
+              <section class="ai-insight-card" id="aiInsightCard">
+                <div class="ai-insight-header">
+                  <span class="ai-insight-badge">AI INSIGHT</span>
+                  <span>Movement & Habit Trend</span>
+                </div>
+                <p class="ai-insight-text">
+                  Your consistency is improving. You've completed <strong>4 workouts this week</strong>, 20% more than last week. Your average form score is also trending upward with cleaner bench stability.
+                </p>
+                <a href="progress.html" class="btn-ai-action" id="aiInsightViewBtn">View Progress</a>
+              </section>
+            </div>
+          </div>
+
+          <!-- 4. Quick Actions Section (Clean SVG Icons, Zero Emojis) -->
+          <section class="quick-actions-section" id="quickActionsSection">
+            <h3 class="section-heading">Quick Actions</h3>
+            <div class="quick-actions-grid">
+              <a href="form-analyzer.html" class="action-card" id="quickActionAnalyzer">
+                <div class="action-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                </div>
+                <div class="action-info">
+                  <span class="action-name">Analyze My Form</span>
+                  <span class="action-desc">Live camera posture detection</span>
+                </div>
+              </a>
+
+              <a href="ai-coach.html" class="action-card" id="quickActionCoach">
+                <div class="action-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+                </div>
+                <div class="action-info">
+                  <span class="action-name">Ask AI Coach</span>
+                  <span class="action-desc">Workout tips & form queries</span>
+                </div>
+              </a>
+
+              <a href="nutrition.html" class="action-card" id="quickActionNutrition">
+                <div class="action-icon-box" aria-hidden="true">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </div>
+                <div class="action-info">
+                  <span class="action-name">Scan Meal</span>
+                  <span class="action-desc">Macro breakdown & nutrition logs</span>
+                </div>
+              </a>
+            </div>
+          </section>
+        </main>
+      </div>
+    </div>
+
+    <!-- Dashboard JavaScript ES Module with Real Firebase Auth Guard -->
+    <script type="module" src="js/dashboard.js"></script>
+  </body>
+</html>
